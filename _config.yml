@@ -1,6 +1,7 @@
 title: Abeer Hashmi
 description: Engineering Student | McMaster University
 
-remote_theme: abhinavsaxena/jekyll-moonwalk
+remote_theme: abhinavs/moonwalk
 plugins:
   - jekyll-remote-theme
+
