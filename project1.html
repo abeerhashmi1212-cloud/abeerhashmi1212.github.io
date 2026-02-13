@@ -3,25 +3,41 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background: #0a0a0a; color: white; font-family: sans-serif; padding: 50px; }
-        .back-link { color: #3498db; text-decoration: none; }
-        .content { max-width: 800px; margin: 0 auto; }
-        h1 { color: #3498db; }
+        body { background: #0a0a0a; color: white; font-family: 'Inter', sans-serif; padding: 50px 10%; line-height: 1.6; }
+        .back-link { color: #3498db; text-decoration: none; font-weight: bold; }
+        .accent { color: #3498db; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        img { border-radius: 10px; border: 1px solid #222; margin: 20px 0; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px; }
+        ul { padding-left: 20px; color: #a0a0a0; }
+        li { margin-bottom: 10px; }
     </style>
 </head>
 <body>
-    <div class="content">
-        <a href="index.html" class="back-link">← Back </a>
-        <h1>PlayBook</h1>
-        <p>This is where you can write paragraphs of information, show more screenshots, and explain how you built the project.</p>
-        <img src="PlayBook-CAD" style="width: 150px; height: 150px; border-radius: 8%; object-fit: cover; margin-bottom: 20px;">
-        
-        <h3>Key Features:</h3>
-        <ul>
-            <li>User Login</li>
-            <li>Shopping Cart</li>
-            <li>Payment Gateway</li>
-        </ul>
+    <a href="index.html" class="back-link">← Back</a>
+    
+    <h1>The Hangman <span class="accent">PlayBook</span></h1>
+    <p style="color: #a0a0a0;">McMaster Design League: Tabletop Toy Competition</p>
+
+    <img src="PlayBook-CAD" style="width: 100%; max-height: 500px; object-fit: contain;">
+
+    <div class="grid">
+        <div>
+            <h3 class="accent">Project Overview</h3>
+            <p>Designed for a tabletop toy competition, our team created a fully portable "PlayBook." The concept was to transform a standard-looking book into a functional Hangman game board upon opening.</p>
+        </div>
+        <div>
+            <h3 class="accent">Key Engineering Features</h3>
+            <ul>
+                <li><strong>Integrated Storage:</strong> Designed internal compartments to house the hangman body parts and gallows stand.</li>
+                <li><strong>Mechanical Hinging:</strong> Engineered a "living hinge" or mechanical fold that allows the book to sit flat during gameplay.</li>
+                <li><strong>Prototyping:</strong> Developed the 3D model using SolidWorks [cite: 9] to ensure all parts fit with precise tolerances for 3D printing[cite: 9].</li>
+            </ul>
+        </div>
     </div>
+
+    <h3 class="accent" style="margin-top: 40px;">Team Contribution</h3>
+    <p>As a team contributor[cite: 5], I assisted in the mechanical layout and 3D modeling of the components, ensuring that the assembly was functional and met the competition's design constraints.</p>
+
 </body>
 </html>
