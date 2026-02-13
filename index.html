@@ -9,11 +9,11 @@
     
     <style>
         :root {
-            --bg: #0a0a0a;
-            --card-bg: #111111;
-            --text: #ffffff;
-            --text-dim: #a0a0a0;
-            --accent: #3498db; /* Change this to your favorite color! */
+            --bg: #0f172a;          /* deep navy */
+            --card-bg: #020617;    /* near-black card */
+            --text: #e5e7eb;       /* soft white */
+            --text-dim: #94a3b8;   /* muted gray */
+            --accent: #38bdf8;     /* bright blue */
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -25,22 +25,20 @@
             line-height: 1.6;
         }
 
-        /* --- Navigation --- */
         nav {
             position: fixed;
             top: 0; width: 100%;
-            background: rgba(10, 10, 10, 0.9);
+            background: rgba(2, 6, 23, 0.85);
             backdrop-filter: blur(10px);
             padding: 20px 10%;
             display: flex;
             justify-content: space-between;
             z-index: 1000;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid rgba(148,163,184,0.15);
         }
         nav a { color: var(--text); text-decoration: none; margin-left: 30px; font-weight: 500; font-size: 0.9rem; }
         nav a:hover { color: var(--accent); }
 
-        /* --- Sections --- */
         section { padding: 100px 10%; min-height: 80vh; }
         .hero { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
         
@@ -48,7 +46,6 @@
         h2 { color: var(--accent); font-size: 1.5rem; margin-top: 0; }
         .dim { color: var(--text-dim); max-width: 600px; font-size: 1.2rem; }
 
-        /* --- Skills Grid --- */
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -60,13 +57,16 @@
             padding: 20px;
             text-align: center;
             border-radius: 12px;
-            border: 1px solid #222;
-            transition: 0.3s;
+            border: 1px solid rgba(148,163,184,0.12);
+            transition: 0.25s ease;
         }
         .skill-box i { font-size: 2rem; color: var(--accent); margin-bottom: 10px; }
-        .skill-box:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .skill-box:hover { 
+            border-color: var(--accent); 
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(56,189,248,0.15);
+        }
 
-        /* --- Projects Grid --- */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -76,23 +76,38 @@
             background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
-            border: 1px solid #222;
+            border: 1px solid rgba(148,163,184,0.12);
+            transition: 0.25s ease;
+        }
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(56,189,248,0.15);
         }
         .project-info { padding: 25px; }
         .project-info h3 { margin-top: 0; }
+
         .tag { 
-            background: #222; color: var(--accent); 
-            padding: 4px 10px; border-radius: 5px; 
-            font-size: 0.7rem; font-weight: bold; margin-right: 5px;
+            background: rgba(56,189,248,0.1); 
+            color: var(--accent); 
+            padding: 4px 10px; 
+            border-radius: 999px; 
+            font-size: 0.7rem; 
+            font-weight: 700; 
+            margin-right: 5px;
         }
 
-        footer { text-align: center; padding: 50px; border-top: 1px solid #222; color: var(--text-dim); }
+        footer { 
+            text-align: center; 
+            padding: 50px; 
+            border-top: 1px solid rgba(148,163,184,0.15); 
+            color: var(--text-dim); 
+        }
 
-        /* Responsive for mobile */
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             nav { padding: 20px; }
-            nav .links { display: none; } /* Simplified for mobile */
+            nav .links { display: none; }
         }
     </style>
 </head>
