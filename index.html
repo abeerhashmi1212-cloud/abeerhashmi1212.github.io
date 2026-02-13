@@ -68,11 +68,13 @@
         }
 
         .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;             /* Adds space between your cards */
+            justify-content: center;
         }
         .project-card {
+            flex: 0 1 300px;
             background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
