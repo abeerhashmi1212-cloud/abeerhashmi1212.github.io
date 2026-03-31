@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PlayBook Project | Engineering Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 4rem 2rem 3rem;
+      background: linear-gradient(135deg, #1e293b, #020617);
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #94a3b8;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 1.5rem;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 4rem 2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #38bdf8;
+      padding-left: 1rem;
+    }
+
+    .card {
+      background: #020617;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 0 1px rgba(148,163,184,0.15);
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #64748b;
+      border-top: 1px solid #1e293b;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #0ea5e9;
+      color: #020617;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>PlayBook</h1>
+  <p>
+    Modular tabletop game-in-a-book designed for portability, storage, and customizable gameplay.
+    Built for the McMaster Design League Tabletop Toys Competition.
+  </p>
+  <a class="back" href="index.html">← Back </a>
+</header>
+
+<section>
+  <h2>Project Overview</h2>
+  <div class="card">
+    <p>
+      PlayBook is a compact tabletop game system designed inside a book form factor.
+      The product stores all game components internally and can be reconfigured to play
+      Hangman, Guess Who, and other memory-based games. The goal was to create a screen-free,
+      portable toy that reduces clutter while increasing replayability.
+    </p>
+  </div>
+
+  <h2>The Problem</h2>
+  <div class="card">
+    <p>
+      Traditional tabletop games are bulky, easy to lose pieces from, and limited to one game mode.
+      PlayBook addresses this by integrating storage directly into the product and using a modular
+      internal layout to support multiple games within one compact object.
+    </p>
+  </div>
+
+  <h2>My Role – Main CAD Designer</h2>
+  <div class="card">
+    <ul>
+      <li>Modeled the book enclosure, internal compartments, hinges, and hangman mechanism in CAD</li>
+      <li>Designed components for 3D printing with tolerance and fit considerations</li>
+      <li>Iterated part geometry to improve assembly and durability</li>
+      <li>Prepared CAD assemblies and exploded views for team presentation</li>
+      <li>Assisted with physical prototyping using 3D printing and craft fabrication tools</li>
+      <li>Pitched the final design to a panel of judges</li>
+    </ul>
+  </div>
+
+  <h2>Design Process</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Research:</strong> Studied portability and storage limitations in tabletop games</li>
+      <li><strong>Ideation:</strong> Explored multiple form factors before selecting a book design</li>
+      <li><strong>CAD & Prototyping:</strong> Created CAD models and 3D printed all parts</li>
+      <li><strong>Iteration:</strong> Refined hinge mechanisms and internal storage layout</li>
+      <li><strong>Final Design:</strong> Assembled and presented a functional prototype</li>
+    </ul>
+  </div>
+
+  <h2>Technical Skills Demonstrated</h2>
+  <div class="card">
+    <span class="tag">CAD</span>
+    <span class="tag">3D Printing</span>
+    <span class="tag">Mechanism Design</span>
+    <span class="tag">Rapid Prototyping</span>
+    <span class="tag">DFM</span>
+    <span class="tag">Product Design</span>
+  </div>
+
+  <h2>Prototype & CAD Gallery</h2>
+  <div class="gallery">
+    <img src="PlayBook-CAD" alt="CAD Assembly View">
+    <img src="exploded_view.png" alt="Exploded View">
+    <img src="internal_storage.png" alt="Internal Storage Layout">
+    <img src="prototype_photo.jpg" alt="Physical Prototype">
+  </div>
+
+  <h2>Results & Reflection</h2>
+  <div class="card">
+    <p>
+      The PlayBook prototype was presented to a panel of judges as part of the McMaster Design League
+      Tabletop Toys competition. Feedback highlighted the compact form factor and modular design.
+      This project strengthened my skills in CAD-driven product development, mechanical design
+      iteration, and physical prototyping under time constraints.
+    </p>
+  </div>
+
+  <h2>Resume Summary</h2>
+  <div class="card">
+    <ul>
+      <li>Designed and CAD-modeled a modular tabletop game system with integrated storage</li>
+      <li>Produced functional 3D printed prototypes and iterated designs based on fit and usability</li>
+      <li>Applied design-for-manufacturing principles to simplify assembly</li>
+      <li>Collaborated in a team to develop and pitch a physical product concept to judges</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 | Engineering Portfolio</p>
+</footer>
+
+</body>
+</html>
