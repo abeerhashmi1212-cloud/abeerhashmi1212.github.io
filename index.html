@@ -3,220 +3,304 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050611">
-  <title>Abeerverse | Abeer Hashmi</title>
-  <meta name="description" content="The engineering portfolio of Abeer Hashmi. Explore my projects, skills, and work.">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0b">
+  <title>YOUR NAME — Engineering Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
-
 <body>
-  <canvas id="starfield" aria-hidden="true"></canvas>
-  <div class="nebula nebula-one"></div>
-  <div class="nebula nebula-two"></div>
-  <div class="shooting-star"></div>
 
-  <header class="navbar">
-    <a class="brand" href="#home">AB<span>✦</span></a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
-      ☰
-    </button>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
+  <header class="topbar">
+    <a class="wordmark" href="#home">YOUR<br>NAME<span>.</span></a>
+    <div class="orbit-status"><i></i> CALIBRATING ORBITS <span id="orbitPercent">000</span>%</div>
+    <button class="menu-button" id="menuButton">~/menu</button>
+    <nav class="navigation" id="navigation">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <!-- HOME / SOLAR SYSTEM -->
-    <section class="hero" id="home">
-      <div class="hero-heading">
-        <p class="eyebrow"><span class="live-dot"></span> SYSTEM ONLINE · EXPLORING THE UNKNOWN</p>
-        <h1>Welcome to my <span>universe.</span></h1>
-        <p class="hero-subtitle">
-          I'm Abeer Hashmi — an Engineering Physics student
-          fascinated by the universe and the things we can build within it.
-        </p>
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero section-wrap" id="home">
+      <div class="terminal-prompt">yourname@universe ~ % whoami</div>
+      <p class="hero-kicker">PORTFOLIO / ENGINEERING / CREATIVE WORK</p>
+      <h1>YOUR NAME</h1>
+      <h2>Engineering Student <span>/</span> YOUR SPECIALIZATION</h2>
+      <p class="hero-copy">
+        A short introduction about yourself. Describe what you study,
+        what you enjoy building, and the areas of engineering that interest you.
+      </p>
+
+      <div class="hero-status">
+        <span class="status-pill">AVAILABLE FOR OPPORTUNITIES</span>
+        <span>YOUR UNIVERSITY · YOUR CITY</span>
       </div>
 
-      <div class="solar-system" aria-label="Interactive solar system. Select a planet to explore a project.">
-        <div class="orbit orbit-outer"></div>
-        <div class="orbit orbit-middle"></div>
-        <div class="orbit orbit-inner"></div>
-
-        <div class="sun">
-          <div class="sun-core"></div>
-          <span class="sun-label">AB</span>
-        </div>
-
-        <div class="planet-orbit orbit-one">
-          <button class="planet planet-mercury" data-project="gripper" aria-label="Explore End Effector Warehouse Gripper">
-            <span class="planet-name">GRIPPER</span>
-          </button>
-        </div>
-
-        <div class="planet-orbit orbit-two">
-          <button class="planet planet-earth" data-project="playbook" aria-label="Explore PlayBook">
-            <span class="planet-name">PLAYBOOK</span>
-          </button>
-        </div>
-
-        <div class="planet-orbit orbit-three">
-          <button class="planet planet-mars" data-project="water" aria-label="Explore Water Filter">
-            <span class="planet-name">WATER FILTER</span>
-          </button>
-        </div>
-
-        <div class="asteroid asteroid-one"></div>
-        <div class="asteroid asteroid-two"></div>
-        <div class="asteroid asteroid-three"></div>
-        <div class="planet-preview" id="planetPreview" aria-live="polite">
-  <span class="preview-label">MISSION DATA</span>
-  <h3 id="previewTitle"></h3>
-  <p id="previewDescription"></p>
-  <div class="preview-tags" id="previewTags"></div>
-  <span class="preview-hint">CLICK PLANET TO PIN DETAILS</span>
-</div>
+      <div class="hero-actions">
+        <a class="button button-light" href="#projects">View Projects ↗</a>
+        <a class="button button-outline" href="#contact">Get in Touch</a>
       </div>
 
-      <p class="solar-hint">✦ SELECT A PLANET TO EXPLORE MY PROJECTS ✦</p>
-      <a class="scroll-link" href="#about">SCROLL TO EXPLORE ↓</a>
-    </section>
-
-    <!-- PROJECT INFORMATION -->
-    <section class="project-section" id="projects">
-      <div class="section-heading">
-        <p class="eyebrow">01 / MISSION ARCHIVES</p>
-        <h2>Explore my <span>missions.</span></h2>
-        <p>Every planet has a story. Select one above or explore the projects below.</p>
-      </div>
-
-      <div class="project-detail" id="projectDetail" aria-live="polite">
-        <div class="detail-placeholder">
-          <span class="detail-icon">✦</span>
-          <h3>Awaiting destination selection...</h3>
-          <p>Choose a planet in the solar system to view its mission details.</p>
+      <div class="ticker" aria-label="Technical interests">
+        <div class="ticker-track">
+          <span>ENGINEERING</span><b>✳</b><span>PHYSICS</span><b>✳</b>
+          <span>AEROSPACE</span><b>✳</b><span>PROGRAMMING</span><b>✳</b>
+          <span>DESIGN</span><b>✳</b><span>RESEARCH</span><b>✳</b>
+          <span>ENGINEERING</span><b>✳</b><span>PHYSICS</span><b>✳</b>
+          <span>AEROSPACE</span><b>✳</b><span>PROGRAMMING</span><b>✳</b>
+          <span>DESIGN</span><b>✳</b><span>RESEARCH</span><b>✳</b>
         </div>
-      </div>
-
-      <div class="project-list">
-        <button class="project-list-item" data-project="gripper">
-          <span class="project-number">01</span>
-          <span class="project-list-name">End Effector Warehouse Gripper</span>
-          <span class="project-arrow">↗</span>
-        </button>
-        <button class="project-list-item" data-project="playbook">
-          <span class="project-number">02</span>
-          <span class="project-list-name">PlayBook</span>
-          <span class="project-arrow">↗</span>
-        </button>
-        <button class="project-list-item" data-project="water">
-          <span class="project-number">03</span>
-          <span class="project-list-name">Water Filter</span>
-          <span class="project-arrow">↗</span>
-        </button>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section class="content-section" id="about">
+    <section class="section-wrap section" id="about">
       <div class="section-heading">
-        <p class="eyebrow">02 / MISSION PROFILE</p>
-        <h2>Who's behind <span>the universe?</span></h2>
+        <span class="section-index">01 / ABOUT</span>
+        <h2>About Me</h2>
       </div>
 
-      <div class="about-layout">
-        <div class="about-symbol">
-          <div class="about-orbit"></div>
-          <div class="about-star">AH</div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="large-copy">
+            I'm a [YEAR] [PROGRAM] student at [UNIVERSITY] who enjoys
+            building things, exploring ideas, and learning how systems work.
+          </p>
+          <p>
+            [Write your first paragraph here. Introduce yourself and explain
+            your academic background and interests.]
+          </p>
+          <p>
+            [Write your second paragraph here. Discuss the fields you are
+            interested in, the types of projects you enjoy, and your goals.]
+          </p>
+          <p>
+            [Optional third paragraph about your approach to engineering,
+            teamwork, research, or learning.]
+          </p>
         </div>
 
-        <div class="about-text">
-          <h3>Curiosity is my driving force.</h3>
-          <p>
-            I'm Abeer, a second-year Engineering Physics student at
-            McMaster University. I'm interested in understanding how the
-            world works, from the physics behind it to the engineering
-            that turns ideas into reality.
-          </p>
-          <p>
-            I enjoy working on projects that challenge me to think
-            creatively, solve problems, and develop practical skills.
-            I'm especially interested in aerospace, space, and technology.
-          </p>
-          <div class="about-facts">
-            <div><span>LOCATION</span><strong>Hamilton, Ontario</strong></div>
-            <div><span>FIELD</span><strong>Engineering Physics</strong></div>
-            <div><span>UNIVERSITY</span><strong>McMaster University</strong></div>
+        <div class="profile-terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dots">● ● ●</span>
+            <span>~/about/profile.dat</span>
+            <span>⌁</span>
+          </div>
+          <div class="terminal-content">
+            <p class="terminal-command">yourname@university ~/about % cat profile.dat</p>
+            <dl>
+              <dt>degree</dt><dd>[Your degree and program]</dd>
+              <dt>school</dt><dd>[Your university]</dd>
+              <dt>year</dt><dd>[Your year of study]</dd>
+              <dt>focus</dt><dd>[Your technical interests]</dd>
+              <dt>location</dt><dd>[Your city, country]</dd>
+              <dt>currently</dt><dd>[What you are working on]</dd>
+            </dl>
+            <p class="terminal-cursor">_</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section class="content-section" id="skills">
+    <section class="section-wrap section" id="skills">
       <div class="section-heading">
-        <p class="eyebrow">03 / SHIP SYSTEMS</p>
-        <h2>My engineering <span>toolkit.</span></h2>
-        <p>The tools and technologies I use to turn ideas into reality.</p>
+        <span class="section-index">02 / TOOLKIT</span>
+        <h2>Skills</h2>
       </div>
 
-      <div class="skills-grid">
-        <div class="skill-card">
-          <span class="skill-icon">⌘</span>
-          <p class="skill-category">PROGRAMMING</p>
-          <h3>Code & Computation</h3>
-          <p>Python, C#, Arduino</p>
+      <div class="skills-terminal">
+        <div class="terminal-bar">
+          <span class="terminal-dots">● ● ●</span>
+          <span>~/lab/skills --list</span>
+          <span>01 / 04</span>
         </div>
-        <div class="skill-card">
-          <span class="skill-icon">◇</span>
-          <p class="skill-category">DESIGN</p>
-          <h3>CAD & Modelling</h3>
-          <p>SolidWorks, Autodesk Inventor</p>
+
+        <div class="skills-carousel">
+          <button class="carousel-arrow" id="skillPrev" aria-label="Previous skills">←</button>
+          <div class="skill-slide" id="skillSlide">
+            <div class="skill-slide-top">
+              <span id="skillCount">01 / 04</span>
+              <span>SKILL DIRECTORY</span>
+            </div>
+            <h3 id="skillTitle">Programming</h3>
+            <div class="skill-list" id="skillList"></div>
+          </div>
+          <button class="carousel-arrow" id="skillNext" aria-label="Next skills">→</button>
         </div>
-        <div class="skill-card">
-          <span class="skill-icon">⚙</span>
-          <p class="skill-category">HARDWARE</p>
-          <h3>Hands-on Engineering</h3>
-          <p>Soldering, prototyping, mechanical design</p>
-        </div>
-        <div class="skill-card">
-          <span class="skill-icon">∑</span>
-          <p class="skill-category">FOUNDATIONS</p>
-          <h3>Engineering Science</h3>
-          <p>Physics, mathematics, problem solving</p>
-        </div>
+        <div class="carousel-progress" id="skillProgress"></div>
       </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section-wrap section" id="projects">
+      <div class="section-heading">
+        <span class="section-index">03 / PROJECT ARCHIVE</span>
+        <h2>Cool Stuff I've Built</h2>
+        <p class="section-subtitle">
+          A collection of projects across different areas of engineering.
+          Hover over a planet to open it, or choose a project from the list.
+        </p>
+      </div>
+
+      <div class="project-universe">
+        <div class="universe-label">PROJECT SYSTEM / INTERACTIVE MODEL</div>
+
+        <div class="orbit-system" id="orbitSystem">
+          <div class="orbit-line orbit-a"></div>
+          <div class="orbit-line orbit-b"></div>
+          <div class="orbit-line orbit-c"></div>
+          <div class="orbit-line orbit-d"></div>
+
+          <div class="core">
+            <div class="core-inner">
+              <span>CORE</span>
+              <small>ENGINEERING</small>
+            </div>
+          </div>
+
+          <div class="project-orbit orbit-project-a">
+            <button class="project-planet planet-a" data-project="0" aria-label="Project 1"></button>
+          </div>
+          <div class="project-orbit orbit-project-b">
+            <button class="project-planet planet-b" data-project="1" aria-label="Project 2"></button>
+          </div>
+          <div class="project-orbit orbit-project-c">
+            <button class="project-planet planet-c" data-project="2" aria-label="Project 3"></button>
+          </div>
+          <div class="project-orbit orbit-project-d">
+            <button class="project-planet planet-d" data-project="3" aria-label="Project 4"></button>
+          </div>
+
+          <div class="project-tooltip" id="projectTooltip" aria-live="polite">
+            <span class="tooltip-index" id="tooltipIndex">PROJECT 01</span>
+            <h3 id="tooltipTitle">Project title</h3>
+            <p id="tooltipDescription">Project description appears here.</p>
+            <div id="tooltipTags" class="tooltip-tags"></div>
+            <span class="tooltip-hint">CLICK TO KEEP OPEN</span>
+          </div>
+        </div>
+
+        <div class="universe-instructions">
+          <span><i class="legend-dot dot-hardware"></i> HARDWARE</span>
+          <span><i class="legend-dot dot-software"></i> SOFTWARE</span>
+          <span><i class="legend-dot dot-mechanical"></i> MECHANICAL</span>
+          <span><i class="legend-dot dot-research"></i> DESIGN & RESEARCH</span>
+        </div>
+        <p class="orbit-hint">HOVER A PLANET TO OPEN IT · CLICK TO PIN IT</p>
+      </div>
+
+      <div class="project-directory">
+        <div class="directory-heading">
+          <span>~/projects % ls -l</span>
+          <span id="projectTotal">04 PROJECTS</span>
+        </div>
+        <div id="projectList"></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section-wrap section" id="experience">
+      <div class="section-heading">
+        <span class="section-index">04 / CAREER HISTORY</span>
+        <h2>Clubs and Work Experience</h2>
+      </div>
+
+      <div class="git-heading">yourname@university ~ % git log --graph career</div>
+      <div class="timeline" id="experienceList"></div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section-wrap section" id="education">
+      <div class="section-heading">
+        <span class="section-index">05 / ACADEMIC HISTORY</span>
+        <h2>Education</h2>
+      </div>
+      <div class="git-heading">yourname@university ~ % git log --graph education</div>
+      <div class="timeline" id="educationList"></div>
     </section>
 
     <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-      <p class="eyebrow">04 / ESTABLISH CONNECTION</p>
-      <h2>Let's build something <span>out of this world.</span></h2>
-      <p>Interested in collaborating, discussing engineering, or just connecting?</p>
-      <a class="contact-button" href="mailto:YOUR_EMAIL@example.com">SEND A TRANSMISSION ↗</a>
-
-      <div class="social-links">
-        <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+    <section class="section-wrap section contact-section" id="contact">
+      <div class="section-heading">
+        <span class="section-index">06 / CONNECTION</span>
+        <h2>Get in Touch!</h2>
+      </div>
+      <p class="contact-copy">
+        [Write a short paragraph inviting people to connect with you,
+        discuss your work, or reach out about opportunities.]
+      </p>
+      <div class="contact-terminal">
+        <span>yourname@university ~/contact %</span>
+        <a id="emailLink" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+        <button id="copyEmail">Copy email ↗</button>
+      </div>
+      <div class="contact-links">
+        <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="YOUR_RESUME_URL" target="_blank" rel="noopener">Resume ↗</a>
       </div>
     </section>
+
   </main>
 
-  <footer>
-    <span>© 2026 ABEER HASHMI</span>
-    <span>MADE ON EARTH · DREAMING BEYOND IT ✦</span>
+  <footer class="footer">
+    <span>YOUR NAME</span>
+    <span>© 2026 · DESIGNED AND BUILT BY ME</span>
+    <span>[YOUR CITY / COUNTRY]</span>
   </footer>
+
+  <!-- HIDDEN TERMINAL -->
+  <div class="shell-overlay" id="shellOverlay" aria-hidden="true">
+    <div class="shell-window">
+      <div class="shell-header">
+        <span>portfolio.shell — zsh</span>
+        <button id="closeShell" aria-label="Close terminal">ESC ✕</button>
+      </div>
+      <div class="shell-output" id="shellOutput">
+        <p>Welcome to my portfolio shell.</p>
+        <p>Type <b>help</b> to see available commands.</p>
+      </div>
+      <form id="shellForm">
+        <label for="shellInput">visitor@portfolio ~ %</label>
+        <input id="shellInput" autocomplete="off" spellcheck="false" aria-label="Terminal command">
+      </form>
+    </div>
+  </div>
+
+  <!-- MINI GAME -->
+  <section class="game-section" id="gameSection">
+    <div class="game-intro">
+      <span class="section-index">BONUS / EASTER EGG</span>
+      <h2>You made it to the end.</h2>
+      <p>You've explored the entire portfolio. Here's a little something for making it this far.</p>
+      <button class="button button-light" id="startGame">Start the mini game ↗</button>
+    </div>
+    <div class="game-panel" id="gamePanel" hidden>
+      <div class="game-header">
+        <span>PIXEL SPACE / 001</span>
+        <span>USE ← → TO MOVE · SPACE TO SHOOT</span>
+        <span id="gameScore">SCORE: 0</span>
+      </div>
+      <canvas id="gameCanvas" width="600" height="280"></canvas>
+      <button class="button button-outline" id="restartGame">Restart</button>
+    </div>
+  </section>
+
+  <script>
+    // Press "/" to open the hidden terminal.
+    // Press Escape to close it.
+  </script>
 </body>
 </html>
