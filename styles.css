@@ -801,3 +801,412 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================
+   ABEERVERSE — MATTE SPACE REDESIGN
+   ========================================= */
+
+:root {
+  --background: #090a0b;
+  --white: #e6e3dc;
+  --muted: #96948d;
+  --purple: #aaa49a;
+  --blue: #9caeaa;
+  --pink: #b88d77;
+}
+
+/* Subtle space background */
+
+body {
+  background: #090a0b;
+  color: #e6e3dc;
+}
+
+.nebula {
+  opacity: .045;
+  filter: blur(130px);
+}
+
+.nebula-one { background: #a18b70; }
+.nebula-two { background: #657c79; }
+
+#starfield { opacity: .58; }
+
+/* Navigation */
+
+.navbar {
+  background: linear-gradient(to bottom, #090a0bf2, transparent);
+  border-bottom: 1px solid #ffffff0b;
+}
+
+.brand span { color: #a99b83; }
+
+.nav-links a:hover { color: #d4c8b4; }
+
+/* Typography */
+
+.hero h1 span,
+.section-heading h2 span,
+.contact-section h2 span {
+  background: linear-gradient(100deg, #c3b49d, #9ba9a1, #b8a18e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: none;
+}
+
+.eyebrow {
+  color: #a9a18e;
+}
+
+/* Solar system */
+
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 65%, #82715b0c, transparent 48%),
+    #090a0b;
+}
+
+.sun {
+  background:
+    radial-gradient(circle at 35% 30%, #f0dfb9, #c69b68 35%, #815b3f 75%);
+  box-shadow:
+    0 0 18px #c69b6844,
+    0 0 50px #c69b6820;
+  animation: sun-pulse 7s ease-in-out infinite;
+}
+
+.sun::before {
+  border-color: #c8ad7d33;
+}
+
+.sun::after {
+  border-color: #c8ad7d16;
+}
+
+.sun-label { color: #4a3424; }
+
+.orbit {
+  border-color: #aaa49a38;
+}
+
+.orbit-inner,
+.orbit-middle,
+.orbit-outer {
+  border-style: solid;
+}
+
+/* Matte planet surfaces */
+
+.planet-mercury {
+  background:
+    radial-gradient(circle at 28% 25%, #cbb6a1, transparent 32%),
+    radial-gradient(circle at 65% 70%, #68584b, transparent 27%),
+    radial-gradient(circle at 40% 45%, #a78a73, #66584d 80%);
+  color: #b89b82;
+  box-shadow: inset -5px -5px 10px #0008;
+}
+
+.planet-earth {
+  background:
+    radial-gradient(circle at 30% 25%, #d0d4c6, transparent 28%),
+    radial-gradient(circle at 65% 60%, #6e8c75 0 20%, transparent 21%),
+    radial-gradient(circle at 30% 70%, #839b82 0 18%, transparent 19%),
+    radial-gradient(circle at 45% 40%, #8da7a4, #435d60 85%);
+  color: #91aaa3;
+  box-shadow: inset -7px -7px 12px #0009;
+}
+
+.planet-mars {
+  background:
+    radial-gradient(circle at 30% 25%, #d8b5a0, transparent 28%),
+    radial-gradient(circle at 65% 70%, #8a5441, transparent 28%),
+    radial-gradient(circle at 40% 40%, #bd8064, #714c43 80%);
+  color: #c18c73;
+  box-shadow: inset -6px -6px 12px #0009;
+}
+
+.planet:hover,
+.planet.active {
+  filter: brightness(1.2);
+  box-shadow: 0 0 18px currentColor;
+}
+
+.planet-name {
+  color: #c5c0b6;
+  text-shadow: 0 2px 5px #000;
+  letter-spacing: 1.5px;
+}
+
+.planet-orbit.paused {
+  animation-play-state: paused;
+}
+
+.solar-system.paused .planet-orbit {
+  animation-play-state: paused;
+}
+
+.asteroid {
+  background: #aaa49a;
+  box-shadow: 0 0 5px #aaa49a66;
+}
+
+/* Remove bright shooting star effect */
+
+.shooting-star {
+  background: linear-gradient(90deg, transparent, #d0c9ba, white);
+  box-shadow: 0 0 8px #b5aa94;
+  opacity: .35;
+}
+
+/* Planet information preview */
+
+.planet-preview {
+  position: absolute;
+  z-index: 10;
+  width: 260px;
+  padding: 20px;
+  background: #171817f5;
+  border: 1px solid #b6aa924d;
+  border-radius: 5px;
+  box-shadow: 0 12px 45px #000b;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+  pointer-events: none;
+}
+
+.planet-preview.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.preview-label {
+  color: #b6a78e;
+  font: .58rem var(--mono);
+  letter-spacing: 2px;
+}
+
+.planet-preview h3 {
+  font-size: 1.15rem;
+  margin: 12px 0 9px;
+  color: #e6e1d7;
+}
+
+.planet-preview p {
+  font-size: .82rem;
+  line-height: 1.7;
+  color: #aaa79f;
+}
+
+.preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 13px;
+}
+
+.preview-tags span {
+  font: .58rem var(--mono);
+  color: #b9b3a6;
+  border: 1px solid #ffffff25;
+  padding: 5px 7px;
+}
+
+.preview-hint {
+  display: block;
+  color: #817e74;
+  font: .52rem var(--mono);
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+/* Project archive */
+
+.project-detail {
+  background: #111312;
+  border-color: #ffffff20;
+  box-shadow: 0 15px 60px #0005;
+}
+
+.detail-index,
+.project-number,
+.skill-category {
+  color: #b6a78e;
+}
+
+.detail-tags span {
+  color: #c2bdb2;
+  border-color: #ffffff25;
+}
+
+.project-link { color: #c1ad8e; }
+
+.project-list { border-color: #ffffff20; }
+
+.project-list-item {
+  border-color: #ffffff20;
+}
+
+.project-list-item:hover { background: #ffffff08; }
+
+.project-arrow { color: #b6a78e; }
+
+/* About section */
+
+.about-symbol {
+  background: radial-gradient(circle, #a18b701b, transparent 65%);
+}
+
+.about-orbit { border-color: #b6a78e55; }
+
+.about-star {
+  background: radial-gradient(circle at 30% 25%, #ddd1b9, #93816b 60%, #484238);
+  box-shadow: 0 0 35px #b6a78e33;
+  color: #25231e;
+}
+
+.about-facts span { color: #b6a78e; }
+
+/* Skills */
+
+.skill-card {
+  background: #111312;
+  border-color: #ffffff1b;
+}
+
+.skill-card:hover {
+  border-color: #b6a78e66;
+}
+
+.skill-icon { color: #b6a78e; }
+
+/* Contact */
+
+.contact-section {
+  background: radial-gradient(ellipse at 50% 60%, #a18b7012, transparent 65%);
+}
+
+.contact-button {
+  background: #c2b49a;
+  color: #151512;
+}
+
+.contact-button:hover {
+  box-shadow: 0 8px 30px #b6a78e22;
+}
+
+.social-links a:hover { color: #d4c8b4; }
+
+footer {
+  border-color: #ffffff18;
+  color: #858177;
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline {
+  position: relative;
+  margin: 50px 0 0 12px;
+  padding-left: 35px;
+  border-left: 1px solid #aaa49a55;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 25px;
+  padding: 0 0 55px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -41px;
+  top: 5px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #aaa18f;
+  border: 3px solid #090a0b;
+  box-shadow: 0 0 0 1px #aaa18f88;
+}
+
+.timeline-date {
+  font: .65rem var(--mono);
+  color: #b6a78e;
+  letter-spacing: 1px;
+  padding-top: 4px;
+}
+
+.timeline-content h3 {
+  font-size: 1.15rem;
+  margin-bottom: 7px;
+}
+
+.timeline-place {
+  color: #aaa18f;
+  font-size: .82rem;
+  margin-bottom: 12px;
+}
+
+.timeline-content > p:last-child {
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+/* Staggered reveals */
+
+.skill-card:nth-child(2) { transition-delay: .1s; }
+.skill-card:nth-child(3) { transition-delay: .2s; }
+.skill-card:nth-child(4) { transition-delay: .3s; }
+
+@media (max-width: 700px) {
+  .planet-preview {
+    width: min(250px, 80vw);
+    left: 50% !important;
+    top: auto !important;
+    bottom: 0;
+    transform: translate(-50%, 8px);
+  }
+
+  .planet-preview.visible {
+    transform: translate(-50%, 0);
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .timeline { padding-left: 25px; }
+  .timeline-marker { left: -31px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
