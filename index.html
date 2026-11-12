@@ -4,147 +4,212 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abeer Hashmi | Engineering Physics</title>
-  <meta name="description" content="Abeer Hashmi's engineering portfolio">
+  <meta name="theme-color" content="#050611">
+  <title>Abeerverse | Abeer Hashmi</title>
+  <meta name="description" content="The engineering portfolio of Abeer Hashmi. Explore my projects, skills, and work.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <canvas id="starfield"></canvas>
 
-  <nav class="navbar">
-    <a class="logo" href="#home">AH<span>.</span></a>
-    <div class="nav-links" id="navLinks">
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="nebula nebula-one"></div>
+  <div class="nebula nebula-two"></div>
+  <div class="shooting-star"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#home">AB<span>✦</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-    </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
-  </nav>
+    </nav>
+  </header>
 
   <main>
+    <!-- HOME / SOLAR SYSTEM -->
     <section class="hero" id="home">
-      <div class="hero-content">
-        <p class="eyebrow">ENGINEERING PHYSICS · MCMASTER UNIVERSITY</p>
-        <h1>Exploring the<br><span class="gradient-text">space between</span><br>ideas and reality.</h1>
-        <p class="hero-description">
-          I'm Abeer — an Engineering Physics student interested in
-          aerospace, technology, and building things that push boundaries.
+      <div class="hero-heading">
+        <p class="eyebrow"><span class="live-dot"></span> SYSTEM ONLINE · EXPLORING THE UNKNOWN</p>
+        <h1>Welcome to my <span>universe.</span></h1>
+        <p class="hero-subtitle">
+          I'm Abeer Hashmi — an Engineering Physics student
+          fascinated by the universe and the things we can build within it.
         </p>
-        <div class="hero-buttons">
-          <a class="button primary" href="#projects">Explore my work ↗</a>
-          <a class="button secondary" href="#contact">Get in touch</a>
+      </div>
+
+      <div class="solar-system" aria-label="Interactive solar system. Select a planet to explore a project.">
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-middle"></div>
+        <div class="orbit orbit-inner"></div>
+
+        <div class="sun">
+          <div class="sun-core"></div>
+          <span class="sun-label">AB</span>
+        </div>
+
+        <div class="planet-orbit orbit-one">
+          <button class="planet planet-mercury" data-project="gripper" aria-label="Explore End Effector Warehouse Gripper">
+            <span class="planet-name">GRIPPER</span>
+          </button>
+        </div>
+
+        <div class="planet-orbit orbit-two">
+          <button class="planet planet-earth" data-project="playbook" aria-label="Explore PlayBook">
+            <span class="planet-name">PLAYBOOK</span>
+          </button>
+        </div>
+
+        <div class="planet-orbit orbit-three">
+          <button class="planet planet-mars" data-project="water" aria-label="Explore Water Filter">
+            <span class="planet-name">WATER FILTER</span>
+          </button>
+        </div>
+
+        <div class="asteroid asteroid-one"></div>
+        <div class="asteroid asteroid-two"></div>
+        <div class="asteroid asteroid-three"></div>
+      </div>
+
+      <p class="solar-hint">✦ SELECT A PLANET TO EXPLORE MY PROJECTS ✦</p>
+      <a class="scroll-link" href="#about">SCROLL TO EXPLORE ↓</a>
+    </section>
+
+    <!-- PROJECT INFORMATION -->
+    <section class="project-section" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">01 / MISSION ARCHIVES</p>
+        <h2>Explore my <span>missions.</span></h2>
+        <p>Every planet has a story. Select one above or explore the projects below.</p>
+      </div>
+
+      <div class="project-detail" id="projectDetail" aria-live="polite">
+        <div class="detail-placeholder">
+          <span class="detail-icon">✦</span>
+          <h3>Awaiting destination selection...</h3>
+          <p>Choose a planet in the solar system to view its mission details.</p>
         </div>
       </div>
 
-      <div class="orbit-scene" aria-label="Abstract orbital illustration">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="planet"></div>
-        <div class="planet-glow"></div>
-        <span class="orbit-label label-one">01 / CURIOSITY</span>
-        <span class="orbit-label label-two">∞ / POSSIBILITY</span>
-      </div>
-
-      <div class="scroll-indicator">SCROLL TO EXPLORE ↓</div>
-    </section>
-
-    <section class="section about" id="about">
-      <p class="eyebrow">01 — ABOUT ME</p>
-      <h2>A little about my <span class="gradient-text">universe.</span></h2>
-      <div class="about-grid">
-        <p class="about-lead">
-          I'm a second-year Engineering Physics student at McMaster University
-          in Hamilton, Ontario.
-        </p>
-        <p class="about-copy">
-          I enjoy exploring the intersection of physics, engineering, and
-          technology. Whether I'm designing mechanical systems, experimenting
-          with code, or learning something new, I'm driven by curiosity and
-          the desire to understand how things work.
-        </p>
+      <div class="project-list">
+        <button class="project-list-item" data-project="gripper">
+          <span class="project-number">01</span>
+          <span class="project-list-name">End Effector Warehouse Gripper</span>
+          <span class="project-arrow">↗</span>
+        </button>
+        <button class="project-list-item" data-project="playbook">
+          <span class="project-number">02</span>
+          <span class="project-list-name">PlayBook</span>
+          <span class="project-arrow">↗</span>
+        </button>
+        <button class="project-list-item" data-project="water">
+          <span class="project-number">03</span>
+          <span class="project-list-name">Water Filter</span>
+          <span class="project-arrow">↗</span>
+        </button>
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <p class="eyebrow">02 — SELECTED MISSIONS</p>
-      <h2>Things I've <span class="gradient-text">built.</span></h2>
-      <p class="section-intro">A collection of projects, experiments, and ideas.</p>
+    <!-- ABOUT -->
+    <section class="content-section" id="about">
+      <div class="section-heading">
+        <p class="eyebrow">02 / MISSION PROFILE</p>
+        <h2>Who's behind <span>the universe?</span></h2>
+      </div>
 
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-art art-one"><span>01</span><div class="art-orbit"></div></div>
-          <div class="project-info">
-            <p class="project-type">MECHANICAL DESIGN</p>
-            <h3>End Effector Warehouse Gripper</h3>
-            <p>Designing a mechanical gripper concept for warehouse automation.</p>
-            <div class="tags"><span>SolidWorks</span><span>Design</span><span>Mechanics</span></div>
-            <a href="#" class="project-link">Project details ↗</a>
-          </div>
-        </article>
+      <div class="about-layout">
+        <div class="about-symbol">
+          <div class="about-orbit"></div>
+          <div class="about-star">AH</div>
+        </div>
 
-        <article class="project-card">
-          <div class="project-art art-two"><span>02</span><div class="art-screen">PLAY<br>BOOK_</div></div>
-          <div class="project-info">
-            <p class="project-type">SOFTWARE</p>
-            <h3>PlayBook</h3>
-            <p>A software project focused on building useful digital experiences.</p>
-            <div class="tags"><span>Programming</span><span>Problem Solving</span></div>
-            <a href="#" class="project-link">Project details ↗</a>
+        <div class="about-text">
+          <h3>Curiosity is my driving force.</h3>
+          <p>
+            I'm Abeer, a second-year Engineering Physics student at
+            McMaster University. I'm interested in understanding how the
+            world works, from the physics behind it to the engineering
+            that turns ideas into reality.
+          </p>
+          <p>
+            I enjoy working on projects that challenge me to think
+            creatively, solve problems, and develop practical skills.
+            I'm especially interested in aerospace, space, and technology.
+          </p>
+          <div class="about-facts">
+            <div><span>LOCATION</span><strong>Hamilton, Ontario</strong></div>
+            <div><span>FIELD</span><strong>Engineering Physics</strong></div>
+            <div><span>UNIVERSITY</span><strong>McMaster University</strong></div>
           </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-art art-three"><span>03</span><div class="water-drop">◉</div></div>
-          <div class="project-info">
-            <p class="project-type">ENGINEERING DESIGN</p>
-            <h3>Water Filter</h3>
-            <p>Exploring a practical engineering solution to a water filtration challenge.</p>
-            <div class="tags"><span>Prototyping</span><span>Engineering</span></div>
-            <a href="#" class="project-link">Project details ↗</a>
-          </div>
-        </article>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <p class="eyebrow">03 — MY TOOLKIT</p>
-      <h2>Tools of the <span class="gradient-text">trade.</span></h2>
+    <!-- SKILLS -->
+    <section class="content-section" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">03 / SHIP SYSTEMS</p>
+        <h2>My engineering <span>toolkit.</span></h2>
+        <p>The tools and technologies I use to turn ideas into reality.</p>
+      </div>
+
       <div class="skills-grid">
-        <div class="skill-group">
-          <h3>Programming</h3>
-          <p>Python · C# · Arduino</p>
+        <div class="skill-card">
+          <span class="skill-icon">⌘</span>
+          <p class="skill-category">PROGRAMMING</p>
+          <h3>Code & Computation</h3>
+          <p>Python, C#, Arduino</p>
         </div>
-        <div class="skill-group">
-          <h3>Design & CAD</h3>
-          <p>SolidWorks · Autodesk Inventor</p>
+        <div class="skill-card">
+          <span class="skill-icon">◇</span>
+          <p class="skill-category">DESIGN</p>
+          <h3>CAD & Modelling</h3>
+          <p>SolidWorks, Autodesk Inventor</p>
         </div>
-        <div class="skill-group">
-          <h3>Hands-on</h3>
-          <p>Soldering · Prototyping</p>
+        <div class="skill-card">
+          <span class="skill-icon">⚙</span>
+          <p class="skill-category">HARDWARE</p>
+          <h3>Hands-on Engineering</h3>
+          <p>Soldering, prototyping, mechanical design</p>
         </div>
-        <div class="skill-group">
-          <h3>Currently exploring</h3>
-          <p>Aerospace · Physics · Engineering</p>
+        <div class="skill-card">
+          <span class="skill-icon">∑</span>
+          <p class="skill-category">FOUNDATIONS</p>
+          <h3>Engineering Science</h3>
+          <p>Physics, mathematics, problem solving</p>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section class="contact-section" id="contact">
-      <p class="eyebrow">04 — MAKE CONTACT</p>
-      <h2>Have a project<br>in <span class="gradient-text">mind?</span></h2>
-      <p>I'm always interested in connecting with people working on interesting things.</p>
-      <a class="button primary" href="mailto:abeerhashmi1212@gmail.com">Say hello ↗</a>
+      <p class="eyebrow">04 / ESTABLISH CONNECTION</p>
+      <h2>Let's build something <span>out of this world.</span></h2>
+      <p>Interested in collaborating, discussing engineering, or just connecting?</p>
+      <a class="contact-button" href="mailto:YOUR_EMAIL@example.com">SEND A TRANSMISSION ↗</a>
+
       <div class="social-links">
-        <a href="#">GitHub ↗</a>
-        <a href="#">LinkedIn ↗</a>
+        <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       </div>
     </section>
   </main>
 
-  <footer>© 2026 Abeer Hashmi <span>BUILT WITH CURIOSITY ✦</span></footer>
+  <footer>
+    <span>© 2026 ABEER HASHMI</span>
+    <span>MADE ON EARTH · DREAMING BEYOND IT ✦</span>
+  </footer>
 </body>
 </html>
