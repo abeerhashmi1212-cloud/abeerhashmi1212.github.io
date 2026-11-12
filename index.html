@@ -1,237 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg: #0f172a;          /* deep navy */
-            --card-bg: #020617;    /* near-black card */
-            --text: #e5e7eb;       /* soft white */
-            --text-dim: #94a3b8;   /* muted gray */
-            --accent: #38bdf8;     /* bright blue */
-        }
-
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        nav {
-            position: fixed;
-            top: 0; width: 100%;
-            background: rgba(2, 6, 23, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(148,163,184,0.15);
-        }
-        nav a { color: var(--text); text-decoration: none; margin-left: 30px; font-weight: 500; font-size: 0.9rem; }
-        nav a:hover { color: var(--accent); }
-
-        section { padding: 100px 10%; min-height: 80vh; }
-        .hero { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
-        
-        h1 { font-size: 4rem; margin: 0; font-weight: 800; }
-        h2 { color: var(--accent); font-size: 1.5rem; margin-top: 0; }
-        .dim { color: var(--text-dim); max-width: 600px; font-size: 1.2rem; }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .skill-box {
-            background: var(--card-bg);
-            padding: 20px;
-            text-align: center;
-            border-radius: 12px;
-            border: 1px solid rgba(148,163,184,0.12);
-            transition: 0.25s ease;
-        }
-        .skill-box i { font-size: 2rem; color: var(--accent); margin-bottom: 10px; }
-        .skill-box:hover { 
-            border-color: var(--accent); 
-            transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(56,189,248,0.15);
-        }
-
-        .project-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;             /* Adds space between your cards */
-            justify-content: center;
-        }
-        .project-card {
-            flex: 0 1 calc(50% - 20px);
-            box-sizing: border-box;
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid rgba(148,163,184,0.12);
-            transition: 0.25s ease;
-        }
-        .project-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-6px);
-            box-shadow: 0 12px 32px rgba(56,189,248,0.15);
-        }
-        .project-info { padding: 25px; }
-        .project-info h3 { margin-top: 0; }
-
-        .tag { 
-            background: rgba(56,189,248,0.1); 
-            color: var(--accent); 
-            padding: 4px 10px; 
-            border-radius: 999px; 
-            font-size: 0.7rem; 
-            font-weight: 700; 
-            margin-right: 5px;
-        }
-
-        footer { 
-            text-align: center; 
-            padding: 50px; 
-            border-top: 1px solid rgba(148,163,184,0.15); 
-            color: var(--text-dim); 
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            nav { padding: 20px; }
-            nav .links { display: none; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abeer Hashmi | Engineering Physics</title>
+  <meta name="description" content="Abeer Hashmi's engineering portfolio">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <canvas id="starfield"></canvas>
 
-    <nav>
-        <div style="font-weight: 800; color: var(--accent);">McMaster University</div>
-        <div class="links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <section class="hero" id="about">
-        <h2>Hi, my name is</h2>
-        <h1>Abeer Hashmi</h1>
-        <p class="dim">I’m an Engineering Physics student at McMaster University interested in mechanical deisgn, 3D modelling, and mafuacturing.</p>
-        <div style="margin-top: 30px;">
-            <a href="#projects" 
-               style="background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">
-               My Projects!
-            </a>
-
-            <a href="Abeer_Hashmi_Eng_Resume.pdf" target="_blank"
-               style="margin-left: 15px; background: transparent; color: var(--accent); 
-                  padding: 15px 30px; text-decoration: none; border-radius: 5px; 
-                  font-weight: bold; border: 1px solid var(--accent);">
-                   View Resume 
-            </a>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h1>Skills</h1>
-        <div class="skills-container">
-            <div class="skill-box"><i class="fab fa-python"></i><p>Python</p></div>
-            <div class="skill-box"><i class="fas fa-cube"></i><p>SolidWorks</p></div>
-            <div class="skill-box"><i class="fas fa-drafting-compass"></i><p>AutoDesk Inventor</p></div>
-            <div class="skill-box"><i class="fas fa-microchip"></i><p>Arduino</p></div>
-            <div class="skill-box"><i class="fas fa-code"></i><p>C#</p></div>
-            <div class="skill-box"><i class="fas fa-tools"></i><p>Soldering</p></div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h1>Featured Projects</h1>
-        <div class="project-grid"style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-            <div class="project-card">
-                <div class="project-info">
-                    <span class="tag">Design Project</span>
-                    <h3>End Effector Warehouse Gripper</h3>
-                     <img src="End Effector Gripper" style="width: 250px; height: 150px; border-radius: 7%; object-fit: cover; margin-bottom: 20px;">
-                    <p class="dim">Automated gripper used to transport, identify, and pack various objects safetly and efficiently.</p>
-                    <a href="https://immediate-gruyere-723.notion.site/Robotic-End-Effector-System-2d280d71ad8081c8b332e8d4d11e455d" style="color: var(--accent); text-decoration: none;"><i class="fab fa-github"></i> View Details</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-info">
-                    <span class="tag">McMaster Design League Project</span>
-                    <h3>PlayBook</h3>
-                     <img src="PlayBook-CAD" style="width: 250px; height: 150px; border-radius: 7%; object-fit: cover; margin-bottom: 20px;">
-                    <p class="dim">An interractive and costomizable game prefect for office workers. </p>
-                    <a href="PlayBook" style="color: var(--accent); text-decoration: none;"><i class="fab fa-github"></i> Details</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-info">
-                    <span class="tag">Design Project</span>
-                    <h3>Water Filter</h3>
-                     <img src="Water_Filter.jpg" style="width: 250px; height: 150px; border-radius: 7%; object-fit: cover; margin-bottom: 20px;">
-                    <p class="dim">A sustainable hollow fiber membrane filtration system designed to remove toxic blue-green algae from treatment ponds using eco-friendly Ramie fibers. </p>
-                    <a href="WaterFilter.html" style="color: var(--accent); text-decoration: none;"><i class="fab fa-github"></i> Details</a>
-                    <br> <a href="WaterFilterPresentation.pdf" target="_blank" style="color: #38bdf8; text-decoration: none; font-size: 0.9rem; font-weight: 700;">
-                    View PDF Report →
-                    </a>
-                </div>
-            </div>
-           <!-- <div class="project-card">
-                <div class="project-info">
-                    <span class="tag">Design Project</span>
-                    <h3>Accessible Vegtable Chopper</h3>
-                     <img src="" style="width: 250px; height: 150px; border-radius: 7%; object-fit: cover; margin-bottom: 20px;">
-                    <p class="dim">An interractive and costomizable game prefect for office workers. </p>
-                    <a href="" style="color: var(--accent); text-decoration: none;"><i class="fab fa-github"></i> Details</a>
-                </div>
-            </div>-->!
-        </div>
-    </section>
-
-    <section id="contact" style="padding: 60px 10% 100px 10%;">
-    <hr style="border: 0; border-top: 1px solid #222; margin-bottom: 40px;">
-    
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
-        
-        <div>
-            <h2 style="font-size: 1.8rem; margin: 0; color: var(--text);">Contact Me</h2>
-            <p class="dim" style="font-size: 0.95rem; margin-top: 5px;">
-                Seeking Summer 2027 Engineering Co-op roles 
-            </p>
-        </div>
-
-        <div style="text-align: right; min-width: 200px;">
-            <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: var(--text-dim);">Hamilton, ON </p>
-            <a href="mailto:abeerhashmi1212@gmail.com" style="font-size: 1.2rem; color: var(--accent); text-decoration: none; font-weight: 500;">
-                abeerhashmi1212@gmail.com 
-            </a>
-            
-            <div style="margin-top: 15px; font-size: 1.1rem;">
-                <a href="tel:6475946165" style="color: white; margin-left: 15px;" title="Call Me"><i class="fas fa-phone"></i></a> 
-                <a href="https://www.linkedin.com/in/abeer-hashmi1212" target="_blank" style="color: white; margin-left: 15px;"><i class="fab fa-linkedin"></i></a>
-                <a href="https://abeerhashmi1212-cloud.github.io/abeerhashmi1212.github.io/" target="_blank" style="color: white; margin-left: 15px;"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
+  <nav class="navbar">
+    <a class="logo" href="#home">AH<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">ENGINEERING PHYSICS · MCMASTER UNIVERSITY</p>
+        <h1>Exploring the<br><span class="gradient-text">space between</span><br>ideas and reality.</h1>
+        <p class="hero-description">
+          I'm Abeer — an Engineering Physics student interested in
+          aerospace, technology, and building things that push boundaries.
+        </p>
+        <div class="hero-buttons">
+          <a class="button primary" href="#projects">Explore my work ↗</a>
+          <a class="button secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="orbit-scene" aria-label="Abstract orbital illustration">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="planet"></div>
+        <div class="planet-glow"></div>
+        <span class="orbit-label label-one">01 / CURIOSITY</span>
+        <span class="orbit-label label-two">∞ / POSSIBILITY</span>
+      </div>
+
+      <div class="scroll-indicator">SCROLL TO EXPLORE ↓</div>
     </section>
 
-    <footer>
-        <p>Built by Abeer Hashmi &copy; 2025</p>
-    </footer>
+    <section class="section about" id="about">
+      <p class="eyebrow">01 — ABOUT ME</p>
+      <h2>A little about my <span class="gradient-text">universe.</span></h2>
+      <div class="about-grid">
+        <p class="about-lead">
+          I'm a second-year Engineering Physics student at McMaster University
+          in Hamilton, Ontario.
+        </p>
+        <p class="about-copy">
+          I enjoy exploring the intersection of physics, engineering, and
+          technology. Whether I'm designing mechanical systems, experimenting
+          with code, or learning something new, I'm driven by curiosity and
+          the desire to understand how things work.
+        </p>
+      </div>
+    </section>
 
+    <section class="section" id="projects">
+      <p class="eyebrow">02 — SELECTED MISSIONS</p>
+      <h2>Things I've <span class="gradient-text">built.</span></h2>
+      <p class="section-intro">A collection of projects, experiments, and ideas.</p>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art art-one"><span>01</span><div class="art-orbit"></div></div>
+          <div class="project-info">
+            <p class="project-type">MECHANICAL DESIGN</p>
+            <h3>End Effector Warehouse Gripper</h3>
+            <p>Designing a mechanical gripper concept for warehouse automation.</p>
+            <div class="tags"><span>SolidWorks</span><span>Design</span><span>Mechanics</span></div>
+            <a href="#" class="project-link">Project details ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art art-two"><span>02</span><div class="art-screen">PLAY<br>BOOK_</div></div>
+          <div class="project-info">
+            <p class="project-type">SOFTWARE</p>
+            <h3>PlayBook</h3>
+            <p>A software project focused on building useful digital experiences.</p>
+            <div class="tags"><span>Programming</span><span>Problem Solving</span></div>
+            <a href="#" class="project-link">Project details ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-art art-three"><span>03</span><div class="water-drop">◉</div></div>
+          <div class="project-info">
+            <p class="project-type">ENGINEERING DESIGN</p>
+            <h3>Water Filter</h3>
+            <p>Exploring a practical engineering solution to a water filtration challenge.</p>
+            <div class="tags"><span>Prototyping</span><span>Engineering</span></div>
+            <a href="#" class="project-link">Project details ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <p class="eyebrow">03 — MY TOOLKIT</p>
+      <h2>Tools of the <span class="gradient-text">trade.</span></h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <p>Python · C# · Arduino</p>
+        </div>
+        <div class="skill-group">
+          <h3>Design & CAD</h3>
+          <p>SolidWorks · Autodesk Inventor</p>
+        </div>
+        <div class="skill-group">
+          <h3>Hands-on</h3>
+          <p>Soldering · Prototyping</p>
+        </div>
+        <div class="skill-group">
+          <h3>Currently exploring</h3>
+          <p>Aerospace · Physics · Engineering</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <p class="eyebrow">04 — MAKE CONTACT</p>
+      <h2>Have a project<br>in <span class="gradient-text">mind?</span></h2>
+      <p>I'm always interested in connecting with people working on interesting things.</p>
+      <a class="button primary" href="mailto:abeerhashmi1212@gmail.com">Say hello ↗</a>
+      <div class="social-links">
+        <a href="#">GitHub ↗</a>
+        <a href="#">LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Abeer Hashmi <span>BUILT WITH CURIOSITY ✦</span></footer>
 </body>
 </html>
