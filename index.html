@@ -2,281 +2,1621 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0c0b">
-  <title>Abeer Hashmi — Engineering Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Personal Archive</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --background: #222321;
+  --surface: #2b2c28;
+  --surface-light: #343630;
+  --paper: #e6e0d4;
+  --muted: #b8b3a8;
+  --taupe: #c7bdaa;
+  --sage: #858b78;
+  --border: rgba(230,224,212,.13);
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  background: var(--background);
+  color: var(--paper);
+  font-family: var(--sans);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+::selection { background: var(--sage); color: var(--background); }
+
+/* READING PROGRESS */
+
+.progress {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--sage);
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(34,35,33,.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--serif);
+  font-size: 19px;
+  letter-spacing: .3px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color .25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active { color: var(--paper); }
+
+.menu-button {
+  display: none;
+  background: none;
+  color: var(--paper);
+  border: 0;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* GENERAL LAYOUT */
+
+.container {
+  width: min(1100px, 86%);
+  margin: auto;
+}
+
+section { padding: 115px 0; }
+
+.eyebrow {
+  color: var(--sage);
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.section-heading {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 570px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.section-number {
+  color: var(--sage);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 150px 0 90px;
+}
+
+.hero-content { max-width: 800px; }
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.hero-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(54px, 9vw, 105px);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -2px;
+  margin-bottom: 28px;
+}
+
+.hero h1 em {
+  color: var(--taupe);
+  font-weight: 400;
+}
+
+.hero-description {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 510px;
+  line-height: 2;
+  margin-bottom: 35px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.primary-link {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 1px solid var(--taupe);
+  color: var(--paper);
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.primary-link:hover {
+  background: var(--taupe);
+  color: var(--background);
+}
+
+.secondary-link {
+  color: var(--muted);
+  font-size: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+}
+
+.hero-note {
+  position: absolute;
+  right: 7%;
+  bottom: 95px;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* DIVIDER */
+
+.page-divider {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-copy p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 18px;
+}
+
+.profile-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 30px;
+}
+
+.profile-card h3 {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+
+.profile-row:last-child { border-bottom: 0; }
+.profile-row span:first-child { color: var(--muted); }
+.profile-row span:last-child { text-align: right; }
+
+/* BOOKSHELF */
+
+.projects-section { background: #252622; }
+
+.shelf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+
+.shelf-instruction {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+
+.shelf {
+  margin-bottom: 65px;
+}
+
+.shelf-label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.books {
+  display: flex;
+  align-items: end;
+  gap: 13px;
+  min-height: 245px;
+  padding: 20px 20px 0;
+  border-bottom: 9px solid #655e50;
+  background: linear-gradient(to bottom, transparent 90%, rgba(0,0,0,.15));
+}
+
+.book {
+  position: relative;
+  width: 100px;
+  height: 195px;
+  flex: 1;
+  max-width: 125px;
+  min-width: 65px;
+  border: 0;
+  border-radius: 3px 5px 0 0;
+  cursor: pointer;
+  color: #eee8dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 7px;
+  transition: transform .3s, filter .3s, box-shadow .3s;
+  transform-origin: bottom center;
+  box-shadow: inset 5px 0 8px rgba(0,0,0,.14),
+              inset -2px 0 3px rgba(255,255,255,.08);
+  overflow: hidden;
+}
+
+.book:hover,
+.book:focus-visible {
+  transform: translateY(-16px);
+  filter: brightness(1.12);
+  box-shadow: 0 15px 25px rgba(0,0,0,.25),
+              inset 5px 0 8px rgba(0,0,0,.14);
+  outline: none;
+}
+
+.book::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8px;
+  height: 100%;
+  width: 1px;
+  background: rgba(255,255,255,.14);
+}
+
+.book::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  right: 8px;
+  height: 1px;
+  background: rgba(255,255,255,.15);
+}
+
+.book-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--serif);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-align: center;
+  max-height: 150px;
+  overflow: hidden;
+}
+
+.book-author {
+  position: absolute;
+  bottom: 12px;
+  font-size: 8px;
+  letter-spacing: 1px;
+  opacity: .75;
+}
+
+.book:nth-child(1) { height: 175px; }
+.book:nth-child(2) { height: 205px; }
+.book:nth-child(3) { height: 185px; }
+.book:nth-child(4) { height: 220px; }
+.book:nth-child(5) { height: 190px; }
+
+.book-1 { background: #626b5b; }
+.book-2 { background: #806b59; }
+.book-3 { background: #555b5c; }
+.book-4 { background: #817b68; }
+.book-5 { background: #6d5550; }
+.book-6 { background: #777363; }
+.book-7 { background: #505b4f; }
+.book-8 { background: #766653; }
+
+.shelf-base {
+  height: 8px;
+  background: linear-gradient(#837966, #4a463d);
+  box-shadow: 0 8px 12px rgba(0,0,0,.2);
+}
+
+.shelf-caption {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* PROJECT DIRECTORY */
+
+.directory {
+  margin-top: 55px;
+  border-top: 1px solid var(--border);
+}
+
+.directory-heading {
+  padding: 20px 0;
+  color: var(--sage);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.project-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 55px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 19px 10px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  color: var(--paper);
+  text-align: left;
+  cursor: pointer;
+  transition: background .25s;
+}
+
+.project-row:hover { background: rgba(255,255,255,.035); }
+
+.project-row .number {
+  color: var(--sage);
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+.project-row .name {
+  font-family: var(--serif);
+  font-size: 17px;
+}
+
+.project-row .type {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0,0,0,.72);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.modal.open { display: flex; }
+
+.modal-content {
+  position: relative;
+  background: #2b2c28;
+  border: 1px solid var(--border);
+  width: min(620px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 45px;
+  animation: modalIn .3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 18px 0;
+}
+
+.modal-meta {
+  color: var(--sage);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* EXPERIENCE */
+
+.timeline {
+  margin-top: 45px;
+  border-left: 1px solid var(--border);
+  margin-left: 8px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 42px 35px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 8px;
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+  background: var(--sage);
+  box-shadow: 0 0 0 5px var(--background);
+}
+
+.timeline-date {
+  color: var(--sage);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.timeline-item h3 {
+  font-family: var(--serif);
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.timeline-item h4 {
+  color: var(--taupe);
+  font-size: 12px;
+  font-weight: 500;
+  margin: 5px 0 12px;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 650px;
+  line-height: 1.9;
+}
+
+/* SKILLS */
+
+.skills-section { background: #252622; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 45px;
+}
+
+.skill-card {
+  padding: 23px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: transform .3s, border-color .3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(133,139,120,.5);
+}
+
+.skill-card h3 {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tags span {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 5px 9px;
+  font-size: 10px;
+}
+
+/* EDUCATION */
+
+.education-card {
+  margin-top: 40px;
+  padding: 30px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.education-card h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.education-card p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.education-date {
+  color: var(--sage);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* READING LIST */
+
+.reading-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.reading-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  transition: transform .3s;
+}
+
+.reading-card:hover { transform: translateY(-5px); }
+
+.reading-card .book-icon {
+  color: var(--sage);
+  font-family: var(--serif);
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.reading-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.reading-card p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+/* CONTACT */
+
+.contact-section {
+  text-align: center;
+  padding: 140px 0;
+  background: #252622;
+}
+
+.contact-section .section-intro {
+  margin: 0 auto 30px;
+}
+
+.contact-email {
+  display: inline-block;
+  color: var(--taupe);
+  font-family: var(--serif);
+  font-size: clamp(19px, 3vw, 27px);
+  border-bottom: 1px solid var(--sage);
+  padding-bottom: 6px;
+  transition: color .25s;
+}
+
+.contact-email:hover { color: var(--paper); }
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.social-links a {
+  color: var(--muted);
+  font-size: 11px;
+  transition: color .25s;
+}
+
+.social-links a:hover { color: var(--paper); }
+
+/* FOOTER */
+
+footer {
+  padding: 25px 7%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* SCROLL REVEALS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 760px) {
+  nav { padding: 17px 6%; }
+
+  .menu-button { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 25px 7%;
+    background: var(--surface);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .container { width: 88%; }
+
+  section { padding: 85px 0; }
+
+  .hero { min-height: 90vh; }
+
+  .hero h1 { letter-spacing: -1px; }
+
+  .hero-note { display: none; }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .shelf-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .books {
+    gap: 7px;
+    padding: 15px 8px 0;
+    min-height: 190px;
+  }
+
+  .book {
+    min-width: 0;
+    height: 150px !important;
+    padding: 5px;
+  }
+
+  .book-title { font-size: 10px; }
+
+  .book-author { font-size: 6px; }
+
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+
+  .reading-list { grid-template-columns: 1fr; }
+
+  .education-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .project-row {
+    grid-template-columns: 35px 1fr;
+  }
+
+  .project-row .type { display: none; }
+
+  .modal-content { padding: 35px 25px; }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 430px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
+
 <body>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" id="progress"></div>
 
-  <header class="topbar">
-    <a class="wordmark" href="#home">YOUR<br>NAME<span>.</span></a>
-    <div class="orbit-status"><i></i> CALIBRATING ORBITS <span id="orbitPercent">000</span>%</div>
-    <button class="menu-button" id="menuButton">~/menu</button>
-    <nav class="navigation" id="navigation">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<nav>
+  <a href="#home" class="logo">The Personal Archive.</a>
 
-  <main id="main">
+  <button class="menu-button" id="menuButton" aria-label="Toggle menu">☰</button>
 
-    <!-- HERO -->
-    <section class="hero section-wrap" id="home">
-      <div class="terminal-prompt">yourname@universe ~ % whoami</div>
-      <p class="hero-kicker">PORTFOLIO / ENGINEERING / CREATIVE WORK</p>
-      <h1>YOUR NAME</h1>
-      <h2>Engineering Student <span>/</span> YOUR SPECIALIZATION</h2>
-      <p class="hero-copy">
-        A short introduction about yourself. Describe what you study,
-        what you enjoy building, and the areas of engineering that interest you.
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content reveal">
+      <div class="hero-label">Welcome to my library</div>
+
+      <h1>
+        A collection of ideas,<br>
+        <em>projects & experiences.</em>
+      </h1>
+
+      <p class="hero-description">
+        An archive of my journey through engineering, learning,
+        and exploration. A place to collect the things I've built,
+        the experiences I've gained, and the ideas that inspire me.
       </p>
-
-      <div class="hero-status">
-        <span class="status-pill">AVAILABLE FOR OPPORTUNITIES</span>
-        <span>YOUR UNIVERSITY · YOUR CITY</span>
-      </div>
 
       <div class="hero-actions">
-        <a class="button button-light" href="#projects">View Projects ↗</a>
-        <a class="button button-outline" href="#contact">Get in Touch</a>
+        <a href="#projects" class="primary-link">EXPLORE THE COLLECTION</a>
+        <a href="#about" class="secondary-link">A LITTLE ABOUT ME ↓</a>
       </div>
-
-      <div class="ticker" aria-label="Technical interests">
-        <div class="ticker-track">
-          <span>ENGINEERING</span><b>✳</b><span>PHYSICS</span><b>✳</b>
-          <span>AEROSPACE</span><b>✳</b><span>PROGRAMMING</span><b>✳</b>
-          <span>DESIGN</span><b>✳</b><span>RESEARCH</span><b>✳</b>
-          <span>ENGINEERING</span><b>✳</b><span>PHYSICS</span><b>✳</b>
-          <span>AEROSPACE</span><b>✳</b><span>PROGRAMMING</span><b>✳</b>
-          <span>DESIGN</span><b>✳</b><span>RESEARCH</span><b>✳</b>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section-wrap section" id="about">
-      <div class="section-heading">
-        <span class="section-index">01 / ABOUT</span>
-        <h2>About Me</h2>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-copy">
-          <p class="large-copy">
-            I'm a [YEAR] [PROGRAM] student at [UNIVERSITY] who enjoys
-            building things, exploring ideas, and learning how systems work.
-          </p>
-          <p>
-            [Write your first paragraph here. Introduce yourself and explain
-            your academic background and interests.]
-          </p>
-          <p>
-            [Write your second paragraph here. Discuss the fields you are
-            interested in, the types of projects you enjoy, and your goals.]
-          </p>
-          <p>
-            [Optional third paragraph about your approach to engineering,
-            teamwork, research, or learning.]
-          </p>
-        </div>
-
-        <div class="profile-terminal">
-          <div class="terminal-bar">
-            <span class="terminal-dots">● ● ●</span>
-            <span>~/about/profile.dat</span>
-            <span>⌁</span>
-          </div>
-          <div class="terminal-content">
-            <p class="terminal-command">yourname@university ~/about % cat profile.dat</p>
-            <dl>
-              <dt>degree</dt><dd>[Your degree and program]</dd>
-              <dt>school</dt><dd>[Your university]</dd>
-              <dt>year</dt><dd>[Your year of study]</dd>
-              <dt>focus</dt><dd>[Your technical interests]</dd>
-              <dt>location</dt><dd>[Your city, country]</dd>
-              <dt>currently</dt><dd>[What you are working on]</dd>
-            </dl>
-            <p class="terminal-cursor">_</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section-wrap section" id="skills">
-      <div class="section-heading">
-        <span class="section-index">02 / TOOLKIT</span>
-        <h2>Skills</h2>
-      </div>
-
-      <div class="skills-terminal">
-        <div class="terminal-bar">
-          <span class="terminal-dots">● ● ●</span>
-          <span>~/lab/skills --list</span>
-          <span>01 / 04</span>
-        </div>
-
-        <div class="skills-carousel">
-          <button class="carousel-arrow" id="skillPrev" aria-label="Previous skills">←</button>
-          <div class="skill-slide" id="skillSlide">
-            <div class="skill-slide-top">
-              <span id="skillCount">01 / 04</span>
-              <span>SKILL DIRECTORY</span>
-            </div>
-            <h3 id="skillTitle">Programming</h3>
-            <div class="skill-list" id="skillList"></div>
-          </div>
-          <button class="carousel-arrow" id="skillNext" aria-label="Next skills">→</button>
-        </div>
-        <div class="carousel-progress" id="skillProgress"></div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section-wrap section" id="projects">
-      <div class="section-heading">
-        <span class="section-index">03 / PROJECT ARCHIVE</span>
-        <h2>My Projects</h2>
-        <p class="section-subtitle">
-          A collection of projects across different areas of engineering.
-          Hover over a planet to open it, or choose a project from the list.
-        </p>
-      </div>
-
-      <div class="project-universe">
-        <div class="universe-label">PROJECT SYSTEM / INTERACTIVE MODEL</div>
-
-        <div class="orbit-system" id="orbitSystem">
-          <div class="orbit-line orbit-a"></div>
-          <div class="orbit-line orbit-b"></div>
-          <div class="orbit-line orbit-c"></div>
-          <div class="orbit-line orbit-d"></div>
-
-          <div class="core">
-            <div class="core-inner">
-              <span>CORE</span>
-              <small>ENGINEERING</small>
-            </div>
-          </div>
-
-          <div class="project-orbit orbit-project-a">
-            <button class="project-planet planet-a" data-project="0" aria-label="Project 1"></button>
-          </div>
-          <div class="project-orbit orbit-project-b">
-            <button class="project-planet planet-b" data-project="1" aria-label="Project 2"></button>
-          </div>
-          <div class="project-orbit orbit-project-c">
-            <button class="project-planet planet-c" data-project="2" aria-label="Project 3"></button>
-          </div>
-          <div class="project-orbit orbit-project-d">
-            <button class="project-planet planet-d" data-project="3" aria-label="Project 4"></button>
-          </div>
-
-          <div class="project-tooltip" id="projectTooltip" aria-live="polite">
-            <span class="tooltip-index" id="tooltipIndex">PROJECT 01</span>
-            <h3 id="tooltipTitle">Project title</h3>
-            <p id="tooltipDescription">Project description appears here.</p>
-            <div id="tooltipTags" class="tooltip-tags"></div>
-            <span class="tooltip-hint">CLICK TO KEEP OPEN</span>
-          </div>
-        </div>
-
-        <p class="orbit-hint">HOVER A PLANET TO OPEN IT · CLICK TO PIN IT</p>
-      </div>
-
-      <div class="project-directory">
-        <div class="directory-heading">
-          <span>~/projects % ls -l</span>
-          <span id="projectTotal">04 PROJECTS</span>
-        </div>
-        <div id="projectList"></div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="section-wrap section" id="experience">
-      <div class="section-heading">
-        <span class="section-index">04 / CAREER HISTORY</span>
-        <h2>Clubs and Work Experience</h2>
-      </div>
-
-      <div class="git-heading">yourname@university ~ % git log --graph career</div>
-      <div class="timeline" id="experienceList"></div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section class="section-wrap section" id="education">
-      <div class="section-heading">
-        <span class="section-index">05 / ACADEMIC HISTORY</span>
-        <h2>Education</h2>
-      </div>
-      <div class="git-heading">yourname@university ~ % git log --graph education</div>
-      <div class="timeline" id="educationList"></div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section-wrap section contact-section" id="contact">
-      <div class="section-heading">
-        <span class="section-index">06 / CONNECTION</span>
-        <h2>Get in Touch!</h2>
-      </div>
-      <p class="contact-copy">
-        [Write a short paragraph inviting people to connect with you,
-        discuss your work, or reach out about opportunities.]
-      </p>
-      <div class="contact-terminal">
-        <span>yourname@university ~/contact %</span>
-        <a id="emailLink" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
-        <button id="copyEmail">Copy email ↗</button>
-      </div>
-      <div class="contact-links">
-        <a href="YOUR_GITHUB_URL" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="YOUR_RESUME_URL" target="_blank" rel="noopener">Resume ↗</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <span>YOUR NAME</span>
-    <span>© 2026 · DESIGNED AND BUILT BY ME</span>
-    <span>[YOUR CITY / COUNTRY]</span>
-  </footer>
-
-  <!-- HIDDEN TERMINAL -->
-  <div class="shell-overlay" id="shellOverlay" aria-hidden="true">
-    <div class="shell-window">
-      <div class="shell-header">
-        <span>portfolio.shell — zsh</span>
-        <button id="closeShell" aria-label="Close terminal">ESC ✕</button>
-      </div>
-      <div class="shell-output" id="shellOutput">
-        <p>Welcome to my portfolio shell.</p>
-        <p>Type <b>help</b> to see available commands.</p>
-      </div>
-      <form id="shellForm">
-        <label for="shellInput">visitor@portfolio ~ %</label>
-        <input id="shellInput" autocomplete="off" spellcheck="false" aria-label="Terminal command">
-      </form>
     </div>
   </div>
 
+  <div class="hero-note">Take your time. There's plenty to explore.</div>
+</section>
 
-  <script>
-    // Press "/" to open the hidden terminal.
-    // Press Escape to close it.
-  </script>
+<hr class="page-divider">
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-copy reveal">
+        <div class="section-number">01 / The introduction</div>
+        <div class="eyebrow">About the author</div>
+        <h2 class="section-heading">A little about me.</h2>
+
+        <p>
+          Hello! I'm [Your Name], an [Your Degree / Field] student
+          at [Your University], interested in understanding how
+          things work and finding ways to make them better.
+        </p>
+
+        <p>
+          I'm particularly interested in [Your Interests].
+          I enjoy exploring new ideas, working through challenging
+          problems, and turning concepts into something tangible.
+        </p>
+
+        <p>
+          Outside of academics, I enjoy [Your Hobbies and Interests].
+          This little corner of the internet is where I keep track
+          of the things I've worked on and the things I've learned.
+        </p>
+      </div>
+
+      <div class="profile-card reveal">
+        <h3>Author's profile</h3>
+
+        <div class="profile-row">
+          <span>Name</span>
+          <span>[Your Name]</span>
+        </div>
+
+        <div class="profile-row">
+          <span>Field</span>
+          <span>[Your Field]</span>
+        </div>
+
+        <div class="profile-row">
+          <span>Institution</span>
+          <span>[Your University]</span>
+        </div>
+
+        <div class="profile-row">
+          <span>Interests</span>
+          <span>[Your Interests]</span>
+        </div>
+
+        <div class="profile-row">
+          <span>Currently</span>
+          <span>[What You're Working On]</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="page-divider">
+
+<!-- PROJECTS -->
+
+<section class="projects-section" id="projects">
+  <div class="container">
+
+    <div class="shelf-header reveal">
+      <div>
+        <div class="section-number">02 / The collection</div>
+        <div class="eyebrow">Selected works</div>
+        <h2 class="section-heading">The project library.</h2>
+        <p class="section-intro">
+          Every project has a story behind it. Browse the shelves
+          and select a book to learn more about the work inside.
+        </p>
+      </div>
+
+      <div class="shelf-instruction">↗ SELECT A BOOK TO OPEN</div>
+    </div>
+
+    <!-- SHELF ONE -->
+
+    <div class="shelf reveal">
+      <div class="shelf-label">
+        <span>Volume I — Engineering</span>
+        <span>01—04</span>
+      </div>
+
+      <div class="books" id="engineeringBooks"></div>
+      <div class="shelf-base"></div>
+      <div class="shelf-caption">Engineering, design and physical projects.</div>
+    </div>
+
+    <!-- SHELF TWO -->
+
+    <div class="shelf reveal">
+      <div class="shelf-label">
+        <span>Volume II — Software & Other Work</span>
+        <span>05—08</span>
+      </div>
+
+      <div class="books" id="softwareBooks"></div>
+      <div class="shelf-base"></div>
+      <div class="shelf-caption">Software, experiments and independent projects.</div>
+    </div>
+
+    <!-- PROJECT DIRECTORY -->
+
+    <div class="directory reveal">
+      <div class="directory-heading">Collection index</div>
+      <div id="projectDirectory"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECT MODAL -->
+
+<div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="modal-meta" id="modalCategory"></div>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
+    <div class="skill-tags" id="modalTags"></div>
+    <p id="modalExtra"></p>
+    <a href="#" class="primary-link" id="modalLink" target="_blank" rel="noopener noreferrer">VIEW PROJECT ↗</a>
+  </div>
+</div>
+
+<hr class="page-divider">
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-number">03 / Previous chapters</div>
+      <div class="eyebrow">Experience journal</div>
+      <h2 class="section-heading">Where I've been.</h2>
+      <p class="section-intro">
+        A record of the roles, opportunities, and experiences
+        that have helped shape my journey so far.
+      </p>
+    </div>
+
+    <div class="timeline" id="experienceTimeline"></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-number">04 / The index</div>
+      <div class="eyebrow">Technical collection</div>
+      <h2 class="section-heading">Things I've learned.</h2>
+      <p class="section-intro">
+        A growing collection of tools, technologies, and skills
+        that I have developed through coursework and personal projects.
+      </p>
+    </div>
+
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-number">05 / Academic records</div>
+      <div class="eyebrow">Education</div>
+      <h2 class="section-heading">The learning journey.</h2>
+      <p class="section-intro">
+        The institutions, subjects, and experiences that have
+        contributed to my academic development.
+      </p>
+    </div>
+
+    <div id="educationEntries"></div>
+  </div>
+</section>
+
+<!-- READING LIST -->
+
+<section class="projects-section" id="reading">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-number">06 / Beyond the shelves</div>
+      <div class="eyebrow">A personal collection</div>
+      <h2 class="section-heading">Currently reading.</h2>
+      <p class="section-intro">
+        A small collection of books and ideas that I enjoy
+        exploring outside of my studies.
+      </p>
+    </div>
+
+    <div class="reading-list reveal" id="readingList"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+  <div class="container reveal">
+    <div class="section-number">07 / The final page</div>
+    <div class="eyebrow">Get in touch</div>
+    <h2 class="section-heading">Let's start a conversation.</h2>
+
+    <p class="section-intro">
+      Have a question, an opportunity, or just want to connect?
+      I'd be happy to hear from you.
+    </p>
+
+    <a href="mailto:your.email@example.com" class="contact-email">
+      your.email@example.com
+    </a>
+
+    <div class="social-links">
+      <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+      <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+      <a href="#" target="_blank" rel="noopener noreferrer">RESUME ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 [Your Name]</span>
+  <span>A personal archive of things made and learned.</span>
+  <span>End of collection.</span>
+</footer>
+
+<script>
+
+/* =====================================================
+   EDIT YOUR PORTFOLIO CONTENT HERE
+   ===================================================== */
+
+/*
+  PROJECTS
+
+  Each project becomes an interactive book.
+  You can add as many projects as you like.
+
+  Change:
+  title       = Book title
+  category    = Project category
+  description = Short project explanation
+  extra       = More detailed information
+  tags        = Technologies / skills used
+  link        = Link to your project, GitHub, or report
+  color       = Book cover colour
+*/
+
+const projects = [
+  {
+    title: "Project One",
+    category: "Engineering Design",
+    description: "Write a short introduction to this project. Explain what you designed or built and what problem it solves.",
+    extra: "Add more information here about your design process, challenges, results, and what you learned.",
+    tags: ["SolidWorks", "CAD", "Engineering"],
+    link: "#",
+    color: "book-1"
+  },
+  {
+    title: "Project Two",
+    category: "Software Development",
+    description: "Describe your second project here. Explain its purpose and what makes it interesting.",
+    extra: "Add technical details, your contributions, and any results worth highlighting.",
+    tags: ["Python", "Programming"],
+    link: "#",
+    color: "book-2"
+  },
+  {
+    title: "Project Three",
+    category: "Mechanical Design",
+    description: "Describe another project. Include the main objective and what you were responsible for.",
+    extra: "Explain the tools, methods, and engineering concepts involved.",
+    tags: ["Design", "Prototyping"],
+    link: "#",
+    color: "book-3"
+  },
+  {
+    title: "Project Four",
+    category: "Personal Project",
+    description: "Use this space for another engineering, creative, or personal project.",
+    extra: "Add any additional context that someone viewing your portfolio should know.",
+    tags: ["Research", "Development"],
+    link: "#",
+    color: "book-4"
+  },
+  {
+    title: "Project Five",
+    category: "Programming",
+    description: "Introduce another project here.",
+    extra: "Explain how it works and what you learned.",
+    tags: ["C#", "Software"],
+    link: "#",
+    color: "book-5"
+  },
+  {
+    title: "Project Six",
+    category: "Research",
+    description: "Introduce another project or research experience.",
+    extra: "Include relevant details and outcomes.",
+    tags: ["Research", "Analysis"],
+    link: "#",
+    color: "book-6"
+  },
+  {
+    title: "Project Seven",
+    category: "Electronics",
+    description: "Introduce another project here.",
+    extra: "Describe the technical process and your contribution.",
+    tags: ["Arduino", "Electronics"],
+    link: "#",
+    color: "book-7"
+  },
+  {
+    title: "Project Eight",
+    category: "Other",
+    description: "Introduce another project here.",
+    extra: "Add more information about the project.",
+    tags: ["Design", "Development"],
+    link: "#",
+    color: "book-8"
+  }
+];
+
+
+/*
+  EXPERIENCE
+
+  Add or remove entries as needed.
+*/
+
+const experience = [
+  {
+    role: "Position / Role",
+    organization: "Organization Name",
+    date: "2025 — PRESENT",
+    description: "Describe your responsibilities, contributions, and accomplishments in this role."
+  },
+  {
+    role: "Previous Position",
+    organization: "Organization Name",
+    date: "2024 — 2025",
+    description: "Describe another experience and highlight the skills you developed."
+  },
+  {
+    role: "Volunteer / Extracurricular Role",
+    organization: "Organization Name",
+    date: "2023 — 2024",
+    description: "Describe your involvement and any meaningful contributions."
+  }
+];
+
+
+/*
+  SKILLS
+
+  Each category has a title and a list of skills.
+*/
+
+const skills = [
+  {
+    title: "Programming",
+    items: ["Python", "C#", "HTML", "CSS", "JavaScript"]
+  },
+  {
+    title: "Engineering Software",
+    items: ["SolidWorks", "Autodesk Inventor", "MATLAB", "Maple"]
+  },
+  {
+    title: "Practical Skills",
+    items: ["Arduino", "Soldering", "Prototyping", "CAD"]
+  }
+];
+
+
+/*
+  EDUCATION
+*/
+
+const education = [
+  {
+    degree: "Degree / Program Name",
+    institution: "University or Institution",
+    date: "2025 — PRESENT",
+    description: "Add your program, relevant academic interests, and any additional information."
+  }
+];
+
+
+/*
+  READING LIST
+
+  This section is optional.
+  Replace these with books you enjoy.
+*/
+
+const reading = [
+  {
+    title: "Book Title One",
+    author: "Author Name",
+    note: "Currently reading"
+  },
+  {
+    title: "Book Title Two",
+    author: "Author Name",
+    note: "A personal favourite"
+  },
+  {
+    title: "Book Title Three",
+    author: "Author Name",
+    note: "On my reading list"
+  }
+];
+
+
+/* =====================================================
+   WEBSITE FUNCTIONALITY
+   ===================================================== */
+
+
+/* CREATE BOOKS */
+
+const engineeringBooks = document.getElementById("engineeringBooks");
+const softwareBooks = document.getElementById("softwareBooks");
+
+function createBook(project, index) {
+  const button = document.createElement("button");
+  button.className = `book ${project.color || "book-1"}`;
+  button.type = "button";
+  button.setAttribute("aria-label", `Open ${project.title}`);
+
+  const title = document.createElement("span");
+  title.className = "book-title";
+  title.textContent = project.title;
+
+  const author = document.createElement("span");
+  author.className = "book-author";
+  author.textContent = String(index + 1).padStart(2, "0");
+
+  button.append(title, author);
+  button.addEventListener("click", () => openProject(index));
+
+  return button;
+}
+
+projects.forEach((project, index) => {
+  const shelf = index < 4 ? engineeringBooks : softwareBooks;
+  shelf.appendChild(createBook(project, index));
+});
+
+
+/* PROJECT DIRECTORY */
+
+const projectDirectory = document.getElementById("projectDirectory");
+
+projects.forEach((project, index) => {
+  const row = document.createElement("button");
+  row.className = "project-row";
+  row.type = "button";
+
+  const number = document.createElement("span");
+  number.className = "number";
+  number.textContent = String(index + 1).padStart(2, "0");
+
+  const name = document.createElement("span");
+  name.className = "name";
+  name.textContent = project.title;
+
+  const type = document.createElement("span");
+  type.className = "type";
+  type.textContent = project.category;
+
+  row.append(number, name, type);
+  row.addEventListener("click", () => openProject(index));
+
+  projectDirectory.appendChild(row);
+});
+
+
+/* OPEN PROJECT DETAILS */
+
+const modal = document.getElementById("projectModal");
+
+function openProject(index) {
+  const project = projects[index];
+
+  document.getElementById("modalCategory").textContent = project.category;
+  document.getElementById("modalTitle").textContent = project.title;
+  document.getElementById("modalDescription").textContent = project.description;
+  document.getElementById("modalExtra").textContent = project.extra;
+
+  const tags = document.getElementById("modalTags");
+  tags.replaceChildren();
+
+  project.tags.forEach(tag => {
+    const item = document.createElement("span");
+    item.textContent = tag;
+    tags.appendChild(item);
+  });
+
+  const link = document.getElementById("modalLink");
+  link.href = project.link || "#";
+  link.style.display = project.link && project.link !== "#" ? "inline-block" : "none";
+
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  document.getElementById("modalClose").focus();
+}
+
+function closeProject() {
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.getElementById("modalClose").addEventListener("click", closeProject);
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) closeProject();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeProject();
+});
+
+
+/* EXPERIENCE TIMELINE */
+
+const timeline = document.getElementById("experienceTimeline");
+
+experience.forEach(item => {
+  const entry = document.createElement("div");
+  entry.className = "timeline-item reveal";
+
+  const date = document.createElement("div");
+  date.className = "timeline-date";
+  date.textContent = item.date;
+
+  const role = document.createElement("h3");
+  role.textContent = item.role;
+
+  const organization = document.createElement("h4");
+  organization.textContent = item.organization;
+
+  const description = document.createElement("p");
+  description.textContent = item.description;
+
+  entry.append(date, role, organization, description);
+  timeline.appendChild(entry);
+});
+
+
+/* SKILLS */
+
+const skillsGrid = document.getElementById("skillsGrid");
+
+skills.forEach(category => {
+  const card = document.createElement("div");
+  card.className = "skill-card reveal";
+
+  const heading = document.createElement("h3");
+  heading.textContent = category.title;
+
+  const tags = document.createElement("div");
+  tags.className = "skill-tags";
+
+  category.items.forEach(skill => {
+    const tag = document.createElement("span");
+    tag.textContent = skill;
+    tags.appendChild(tag);
+  });
+
+  card.append(heading, tags);
+  skillsGrid.appendChild(card);
+});
+
+
+/* EDUCATION */
+
+const educationEntries = document.getElementById("educationEntries");
+
+education.forEach(item => {
+  const card = document.createElement("div");
+  card.className = "education-card reveal";
+
+  const info = document.createElement("div");
+
+  const degree = document.createElement("h3");
+  degree.textContent = item.degree;
+
+  const institution = document.createElement("p");
+  institution.textContent = item.institution;
+
+  const description = document.createElement("p");
+  description.textContent = item.description;
+
+  info.append(degree, institution, description);
+
+  const date = document.createElement("div");
+  date.className = "education-date";
+  date.textContent = item.date;
+
+  card.append(info, date);
+  educationEntries.appendChild(card);
+});
+
+
+/* READING LIST */
+
+const readingList = document.getElementById("readingList");
+
+reading.forEach(book => {
+  const card = document.createElement("div");
+  card.className = "reading-card reveal";
+
+  const icon = document.createElement("div");
+  icon.className = "book-icon";
+  icon.textContent = "“";
+
+  const title = document.createElement("h3");
+  title.textContent = book.title;
+
+  const author = document.createElement("p");
+  author.textContent = book.author;
+
+  const note = document.createElement("p");
+  note.textContent = book.note;
+
+  card.append(icon, title, author, note);
+  readingList.appendChild(card);
+});
+
+
+/* SCROLL REVEAL ANIMATIONS */
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      obs.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+function observeReveals() {
+  document.querySelectorAll(".reveal:not(.visible)").forEach(element => {
+    observer.observe(element);
+  });
+}
+
+observeReveals();
+
+
+/* NAVIGATION */
+
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
+
+menuButton.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+  });
+});
+
+
+/* READING PROGRESS */
+
+window.addEventListener("scroll", () => {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+
+  document.getElementById("progress").style.width = progress + "%";
+});
+
+
+/* ACTIVE NAVIGATION */
+
+const sections = document.querySelectorAll("section[id]");
+const navItems = document.querySelectorAll(".nav-links a");
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === "#" + entry.target.id
+        );
+      });
+    }
+  });
+}, {
+  rootMargin: "-35% 0px -55% 0px"
+});
+
+sections.forEach(section => sectionObserver.observe(section));
+
+</script>
 </body>
 </html>
