@@ -950,13 +950,8 @@ footer {
         </div>
 
         <div class="profile-row">
-          <span>Interests</span>
-          <span>Mechanical Systems, Photonics</span>
-        </div>
-
-        <div class="profile-row">
-          <span>Currently</span>
-          <span>TBD</span>
+          <span>GPA</span>
+          <span>3.7 / 4.0</span>
         </div>
       </div>
 
@@ -1147,77 +1142,23 @@ footer {
 
 const projects = [
   {
-    title: "Project One",
-    category: "Engineering Design",
-    description: "Write a short introduction to this project. Explain what you designed or built and what problem it solves.",
-    extra: "Add more information here about your design process, challenges, results, and what you learned.",
-    tags: ["SolidWorks", "CAD", "Engineering"],
+    title: "3D-Printed Warehouse Loading Gripper",
+    category: "Mechanical Design | Personal Project",
+    description: "Designed an automated loading gripper to transport and handle objects of various shapes.",
+    extra: "Applied DFMA to reduce part count by 30% and assembly time by 25%. Used decision-matrix analysis to select the gripper mechanism, improving the strength-to-weight ratio by 15%. Iterated four prototypes to test and verify grip strength.",
+    tags: ["Mechanical Design", "3D Printing", "DFMA", "Decision Matrices", "Prototyping"],
     link: "#",
     color: "book-1"
   },
-  {
-    title: "Project Two",
-    category: "Software Development",
-    description: "Describe your second project here. Explain its purpose and what makes it interesting.",
-    extra: "Add technical details, your contributions, and any results worth highlighting.",
-    tags: ["Python", "Programming"],
+  ...Array.from({ length: 7 }, (_, i) => ({
+    title: `Project ${["Two","Three","Four","Five","Six","Seven","Eight"][i]}`,
+    category: "Add Category",
+    description: "Add a short introduction to this project.",
+    extra: "Add details about your design process, your contributions, challenges, results, and what you learned.",
+    tags: ["Add Skills"],
     link: "#",
-    color: "book-2"
-  },
-  {
-    title: "Project Three",
-    category: "Mechanical Design",
-    description: "Describe another project. Include the main objective and what you were responsible for.",
-    extra: "Explain the tools, methods, and engineering concepts involved.",
-    tags: ["Design", "Prototyping"],
-    link: "#",
-    color: "book-3"
-  },
-  {
-    title: "Project Four",
-    category: "Personal Project",
-    description: "Use this space for another engineering, creative, or personal project.",
-    extra: "Add any additional context that someone viewing your portfolio should know.",
-    tags: ["Research", "Development"],
-    link: "#",
-    color: "book-4"
-  },
-  {
-    title: "Project Five",
-    category: "Programming",
-    description: "Introduce another project here.",
-    extra: "Explain how it works and what you learned.",
-    tags: ["C#", "Software"],
-    link: "#",
-    color: "book-5"
-  },
-  {
-    title: "Project Six",
-    category: "Research",
-    description: "Introduce another project or research experience.",
-    extra: "Include relevant details and outcomes.",
-    tags: ["Research", "Analysis"],
-    link: "#",
-    color: "book-6"
-  },
-  {
-    title: "Project Seven",
-    category: "Electronics",
-    description: "Introduce another project here.",
-    extra: "Describe the technical process and your contribution.",
-    tags: ["Arduino", "Electronics"],
-    link: "#",
-    color: "book-7"
-  },
-  {
-    title: "Project Eight",
-    category: "Other",
-    description: "Introduce another project here.",
-    extra: "Add more information about the project.",
-    tags: ["Design", "Development"],
-    link: "#",
-    color: "book-8"
-  }
+    color: `book-${i + 2}`
+  }))
 ];
 
 
@@ -1229,22 +1170,28 @@ const projects = [
 
 const experience = [
   {
-    role: "Position / Role",
-    organization: "Organization Name",
-    date: "2025 — PRESENT",
-    description: "Describe your responsibilities, contributions, and accomplishments in this role."
+    role: "Mechanical Team Member",
+    organization: "McMaster Mars Rover Team",
+    date: "SEPTEMBER 2026 — PRESENT",
+    description: "Contributed to development of the V2.75 Mars Rover for CIRC. Designed and modified 5+ mechanical components in SolidWorks, applying GD&T and tolerance principles. Performed FEA to evaluate structural performance and managed CAD models, assemblies, and revisions through PDM."
   },
   {
-    role: "Previous Position",
-    organization: "Organization Name",
-    date: "2024 — 2025",
-    description: "Describe another experience and highlight the skills you developed."
+    role: "Outreach Facilitator Co-op",
+    organization: "McMaster Engineering Community Outreach",
+    date: "MAY 2026 — AUGUST 2026",
+    description: "Delivered 30+ hands-on STEM workshops and engineering demonstrations to K–12 students across the GTA, adapting content for different age groups. Planned and facilitated 5+ outreach events to increase STEM engagement among underrepresented communities."
   },
   {
-    role: "Volunteer / Extracurricular Role",
-    organization: "Organization Name",
-    date: "2023 — 2024",
-    description: "Describe your involvement and any meaningful contributions."
+    role: "Power Team Member",
+    organization: "McMaster Pumpkin Chunkin",
+    date: "DECEMBER 2025 — AUGUST 2026",
+    description: "Modeled a mounting system, chain tensioner, and sprockets in SolidWorks. Used GD&T and tolerance guidelines to reduce dimensional variation by 15%. Produced BOMs and engineering drawings to support manufacturing and assembly."
+  },
+  {
+    role: "Mechanical Engineering Co-op",
+    organization: "Apogee Ceramic Inc.",
+    date: "SEPTEMBER 2024 — FEBRUARY 2025",
+    description: "Modeled fixtures and safety guards in SolidWorks, applying DFMA to simplify manufacturing. Evaluated material and design options using decision matrices, reducing material cost by 15%. Authored and updated 10+ SOPs to align with company policy."
   }
 ];
 
@@ -1256,18 +1203,9 @@ const experience = [
 */
 
 const skills = [
-  {
-    title: "Programming",
-    items: ["Python", "C#", "HTML", "CSS", "JavaScript"]
-  },
-  {
-    title: "Engineering Software",
-    items: ["SolidWorks", "Autodesk Inventor", "MATLAB", "Maple"]
-  },
-  {
-    title: "Practical Skills",
-    items: ["Arduino", "Soldering", "Prototyping", "CAD"]
-  }
+  { title: "CAD & Design", items: ["SolidWorks", "Autodesk Inventor", "Engineering Drawings", "BOMs"] },
+  { title: "Mechanical Engineering", items: ["GD&T", "Decision Matrices", "Material Selection", "FEA"] },
+  { title: "Programming Languages & Tools", items: ["C#", "HTML", "Python", "Matplotlib", "NumPy"] }
 ];
 
 
@@ -1277,10 +1215,10 @@ const skills = [
 
 const education = [
   {
-    degree: "Degree / Program Name",
-    institution: "University or Institution",
-    date: "2025 — PRESENT",
-    description: "Add your program, relevant academic interests, and any additional information."
+    degree: "Bachelor of Engineering Physics",
+    institution: "McMaster University | GPA: 3.7 / 4.0",
+    date: "SEPTEMBER 2025 — PRESENT",
+    description: "Bachelor's degree program."
   }
 ];
 
