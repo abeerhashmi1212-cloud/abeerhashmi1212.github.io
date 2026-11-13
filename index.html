@@ -1159,6 +1159,14 @@ const projects = [
   link: "https://app.notion.com/p/User-Friendly-Vegetable-Chopper-33a80d71ad8080f4b985db7788dba59d?source=copy_link",
   color: "book-2"
 },
+  ...Array.from({ length: 6 }, (_, i) => ({
+    title: `Project ${["Three","Four","Five","Six","Seven","Eight"][i]}`,
+    category: "Add Category",
+    description: "Add a short introduction to this project.",
+    extra: "Add details about your design process, your contributions, challenges, results, and what you learned.",
+    tags: ["Add Skills"],
+    link: "#",
+    color: `book-${i + 2}`
   }))
 ];
 
