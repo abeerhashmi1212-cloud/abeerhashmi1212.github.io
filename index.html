@@ -557,6 +557,19 @@ section { padding: 115px 0; }
   margin-top: 45px;
   border-left: 1px solid var(--border);
   margin-left: 8px;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 2px;
+  height: var(--timeline-progress, 0%);
+  background: var(--sage);
+  z-index: 1;
+  transition: height 0.1s linear;
 }
 
 .timeline-item {
@@ -782,7 +795,12 @@ footer {
 .reveal {
   opacity: 0;
   transform: translateY(25px);
-  transition: opacity .8s ease, transform .8s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .reveal.visible {
@@ -1491,13 +1509,47 @@ const observer = new IntersectionObserver((entries, obs) => {
 });
 
 function observeReveals() {
-  document.querySelectorAll(".reveal:not(.visible)").forEach(element => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      } else {
+        entry.target.classList.remove("active");
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  document.querySelectorAll(".reveal").forEach(element => {
     observer.observe(element);
   });
 }
 
 observeReveals();
+const timeline = document.querySelector(".experience-timeline");
 
+function updateTimeline() {
+  if (!timeline) return;
+
+  const rect = timeline.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  const progress = Math.max(
+    0,
+    Math.min(1, (windowHeight * 0.65 - rect.top) / rect.height)
+  );
+
+  timeline.style.setProperty(
+    "--timeline-progress",
+    `${progress * 100}%`
+  );
+}
+
+window.addEventListener("scroll", updateTimeline);
+window.addEventListener("resize", updateTimeline);
+
+updateTimeline();
 
 /* NAVIGATION */
 
