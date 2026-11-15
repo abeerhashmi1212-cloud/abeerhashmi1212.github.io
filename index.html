@@ -385,18 +385,22 @@ section { padding: 115px 0; }
   font-size: 13px;
   letter-spacing: 1px;
   text-align: center;
-  max-height: 150px;
+  max-height: 125px;
   overflow: hidden;
+  padding-bottom: 15px;
 }
 
 .book-author {
   position: absolute;
   bottom: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
   font-size: 9px;
   letter-spacing: 1px;
   opacity: 0.9;
   color: #eee8dc;
-  z-index: 2;
+  z-index: 5;
 }
 
 .book:nth-child(1) { height: 175px; }
@@ -430,8 +434,9 @@ section { padding: 115px 0; }
 /* PROJECT DIRECTORY */
 
 .directory {
-  margin-top: 55px;
-  border-top: 1px solid var(--border);
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .directory-heading {
@@ -444,8 +449,9 @@ section { padding: 115px 0; }
 
 .project-row {
   width: 100%;
+  box-sizing: border-box;
   display: grid;
-  grid-template-columns: 55px 1fr auto;
+  grid-template-columns: 55px minmax(0, 1fr) minmax(0, 260px);
   gap: 20px;
   align-items: center;
   padding: 19px 10px;
@@ -467,13 +473,16 @@ section { padding: 115px 0; }
 }
 
 .project-row .name {
-  font-family: var(--serif);
-  font-size: 17px;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .project-row .type {
   color: var(--muted);
   font-size: 11px;
+  text-align: right;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* MODAL */
