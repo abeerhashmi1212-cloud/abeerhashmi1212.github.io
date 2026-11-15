@@ -436,11 +436,13 @@ section { padding: 115px 0; }
 .directory {
   width: 100%;
   min-width: 0;
+  box-sizing: border-box;
+  padding: 0 25px;
   overflow: hidden;
 }
 
 .directory-heading {
-  padding: 20px 0;
+  padding: 20px 10px;
   color: var(--sage);
   font-size: 10px;
   letter-spacing: 2px;
@@ -454,7 +456,7 @@ section { padding: 115px 0; }
   grid-template-columns: 55px minmax(0, 1fr) minmax(0, 260px);
   gap: 20px;
   align-items: center;
-  padding: 19px 10px;
+  padding: 19px 15px;
   border: 0;
   border-top: 1px solid var(--border);
   background: transparent;
