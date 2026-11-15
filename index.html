@@ -692,6 +692,18 @@ section { padding: 115px 0; }
   padding: 24px;
   transition: transform .3s;
 }
+.reading-cover {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  margin-bottom: 18px;
+  display: block;
+  transition: transform .3s;
+}
+
+.reading-card:hover .reading-cover {
+  transform: translateY(-4px);
+}
 
 .reading-card:hover { transform: translateY(-5px); }
 
@@ -1446,9 +1458,10 @@ reading.forEach(book => {
   const card = document.createElement("div");
   card.className = "reading-card reveal";
 
-  const icon = document.createElement("div");
-  icon.className = "book-icon";
-  icon.textContent = "“";
+  const image = document.createElement("img");
+  image.src = book.image;
+  image.alt = book.title + " book cover";
+  image.className = "reading-cover";
 
   const title = document.createElement("h3");
   title.textContent = book.title;
@@ -1459,7 +1472,7 @@ reading.forEach(book => {
   const note = document.createElement("p");
   note.textContent = book.note;
 
-  card.append(icon, title, author, note);
+  card.append(image, title, author, note);
   readingList.appendChild(card);
 });
 
