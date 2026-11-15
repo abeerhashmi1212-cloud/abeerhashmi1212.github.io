@@ -1527,12 +1527,13 @@ function observeReveals() {
 }
 
 observeReveals();
-const timeline = document.querySelector(".experience-timeline");
+
+const timelineElement = document.getElementById("experienceTimeline");
 
 function updateTimeline() {
-  if (!timeline) return;
+  if (!timelineElement) return;
 
-  const rect = timeline.getBoundingClientRect();
+  const rect = timelineElement.getBoundingClientRect();
   const windowHeight = window.innerHeight;
 
   const progress = Math.max(
@@ -1540,7 +1541,7 @@ function updateTimeline() {
     Math.min(1, (windowHeight * 0.65 - rect.top) / rect.height)
   );
 
-  timeline.style.setProperty(
+  timelineElement.style.setProperty(
     "--timeline-progress",
     `${progress * 100}%`
   );
