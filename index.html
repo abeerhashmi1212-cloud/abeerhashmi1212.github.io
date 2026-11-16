@@ -12,14 +12,14 @@
 
 <style>
 :root {
-  --background: #222321;
-  --surface: #2b2c28;
-  --surface-light: #343630;
-  --paper: #e6e0d4;
-  --muted: #b8b3a8;
-  --taupe: #c7bdaa;
-  --sage: #858b78;
-  --border: rgba(230,224,212,.13);
+  --background: #211b16;
+  --surface: #2a231c;
+  --surface-light: #342b22;
+  --paper: #e8dfd1;
+  --muted: #b9ad9d;
+  --taupe: #c5ad8e;
+  --sage: #9a8a70;
+  --border: rgba(232,223,209,.13);
   --serif: "Playfair Display", Georgia, serif;
   --sans: "DM Sans", sans-serif;
 }
@@ -29,11 +29,86 @@
 html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
 body {
-  background: var(--background);
+  <div class="space-backdrop" aria-hidden="true"></div>
+  background-color: #211b16;
+  background-image:
+    radial-gradient(1px 1px at 8% 18%, rgba(198,163,119,.42) 99%, transparent),
+    radial-gradient(1px 1px at 22% 67%, rgba(198,163,119,.30) 99%, transparent),
+    radial-gradient(1.5px 1.5px at 41% 31%, rgba(198,163,119,.34) 99%, transparent),
+    radial-gradient(1px 1px at 63% 78%, rgba(198,163,119,.32) 99%, transparent),
+    radial-gradient(1px 1px at 79% 23%, rgba(198,163,119,.35) 99%, transparent),
+    radial-gradient(1.5px 1.5px at 92% 58%, rgba(198,163,119,.28) 99%, transparent);
+  background-size: 100% 100%;
   color: var(--paper);
   font-family: var(--sans);
   line-height: 1.65;
   overflow-x: hidden;
+  isolation: isolate;
+}
+
+/* Subtle celestial background */
+.space-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Faint orbital curves */
+.space-backdrop::before {
+  content: "";
+  position: absolute;
+  width: 112vw;
+  height: 72vh;
+  left: -8vw;
+  top: 12vh;
+  border: 1px solid rgba(177,143,104,.075);
+  border-radius: 50%;
+  transform: rotate(-17deg);
+  box-shadow:
+    0 0 0 48px rgba(177,143,104,.018),
+    0 0 0 110px rgba(177,143,104,.012);
+}
+
+/* Occasional shooting star */
+.space-backdrop::after {
+  content: "";
+  position: absolute;
+  top: 17%;
+  left: -22%;
+  width: 110px;
+  height: 1px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(202,166,124,.55),
+    transparent
+  );
+  transform: rotate(-28deg);
+  filter: drop-shadow(0 0 3px rgba(202,166,124,.2));
+  animation: shooting-star 19s ease-in-out 5s infinite;
+}
+
+@keyframes shooting-star {
+  0%, 82%, 100% {
+    opacity: 0;
+    transform: translate(0,0) rotate(-28deg);
+  }
+  84% {
+    opacity: .5;
+  }
+  88% {
+    opacity: 0;
+    transform: translate(125vw, 48vh) rotate(-28deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-backdrop::after {
+    animation: none;
+  }
 }
 
 a { color: inherit; text-decoration: none; }
